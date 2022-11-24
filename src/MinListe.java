@@ -1,8 +1,9 @@
 import javax.swing.*;
-public class Serier {
+
+public class MinListe {
     JFrame frame = new JFrame();
-    JLabel label = new JLabel("Serier!");
-    public Serier (){
+    JLabel label = new JLabel("Min Liste!");
+    public MinListe (){
         label.setBounds(100,0,100,50);
 
         frame.add(label);
