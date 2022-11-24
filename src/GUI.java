@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GUI {
     // Opretter vores frame instans og alle knapper
@@ -20,8 +18,8 @@ public class GUI {
         minListe.setBounds(575,25,100,20);
         minListe.setFocusable(false);
 
-        // Her tilføjer vi funktionalitet til knapperne når de bliver trykket på
-        // Den skaber en ny instans af den pågældende knap
+        /* Her tilføjer vi funktionalitet til knapperne når de bliver trykket på.
+           Den skaber en ny instans af den pågældende knap */
         serier.addActionListener(e -> {
             frame.dispose();
             Serier serieSide = new Serier();
