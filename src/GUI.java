@@ -3,25 +3,29 @@ import java.awt.*;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
-    JFrame frame = new JFrame();
-    JPanel navPanel = new JPanel();
-    JPanel forsidePanel = new JPanel();
-    JPanel seriePanel = new JPanel();
-    JPanel filmPanel = new JPanel();
-    JPanel listePanel = new JPanel();
-    JButton forside = new JButton("Forside");
-    JButton serier = new JButton("Serier");
-    JButton film = new JButton("Film");
-    JButton minListe = new JButton("Min Liste");
+    protected JFrame frame = new JFrame();
+    protected JPanel navPanel = new JPanel();
+    protected JPanel forsidePanel = new JPanel();
+    protected JPanel seriePanel = new JPanel();
+    protected JPanel filmPanel = new JPanel();
+    protected JPanel listePanel = new JPanel();
+    protected JButton forside = new JButton("Forside");
+    protected JButton serier = new JButton("Serier");
+    protected JButton film = new JButton("Film");
+    protected JButton minListe = new JButton("Min Liste");
     protected JLabel serieLabel = new JLabel("Serier!");
     protected JLabel filmLabel = new JLabel("Film!");
     protected JLabel listeLabel = new JLabel("Min Liste!");
+    String[] genre = {"Crime", "War", "Drama", "Family", "Romance", "Sci-fi", "Talk-show", "Documentary", "Action", "Adventure",
+            "Comedy", "Fantasy", "Animation", "Horror", "Thriller", "Mystery", "Biography", "History", "Western", "Sport"};
+    JComboBox comboBox = new JComboBox(genre);
     public GUI (){
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
         frameTabs();
         frameMethods();
+
     }
     public void framePanels() {
         /* Vi har alle vores paneler.
@@ -67,6 +71,7 @@ public class GUI {
             filmPanel.setVisible(false);
             listePanel.setVisible(false);
             forsidePanel.setVisible(true);
+            seriePanel.setLayout(null);
         });
         serier.addActionListener(e -> {
             forsidePanel.setVisible(false);
@@ -74,6 +79,8 @@ public class GUI {
             listePanel.setVisible(false);
             seriePanel.setVisible(true);
             seriePanel.setLayout(null);
+
+            serier.add(comboBox);
 
             serieLabel.setBounds(100,50,100,50);
             seriePanel.add(serieLabel);
@@ -86,6 +93,8 @@ public class GUI {
             filmPanel.setVisible(true);
             filmPanel.setLayout(null);
 
+            film.add(comboBox);
+
             filmLabel.setBounds(100,50,100,50);
             filmPanel.add(filmLabel);
         });
@@ -96,6 +105,8 @@ public class GUI {
             seriePanel.setVisible(false);
             listePanel.setVisible(true);
             listePanel.setLayout(null);
+
+            minListe.add(comboBox);
 
             listeLabel.setBounds(100,50,100,50);
             listePanel.add(listeLabel);
