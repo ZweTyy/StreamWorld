@@ -33,8 +33,6 @@ public class GUI {
         //Kalder fra film
         Film f= new Film();
         for (String film : f.alle_film()) {
-
-
         try {
             BufferedImage myPicture = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
             JLabel picLabel = new JLabel(new ImageIcon(myPicture));
