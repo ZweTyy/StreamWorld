@@ -1,5 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import  java.util.*;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
@@ -8,15 +12,56 @@ public class GUI {
     JPanel forsidePanel = new JPanel();
     JPanel seriePanel = new JPanel();
     JPanel filmPanel = new JPanel();
-    JPanel listePanel = new JPanel();
-    JButton forside = new JButton("Forside");
-    JButton serier = new JButton("Serier");
-    JButton film = new JButton("Film");
-    JButton minListe = new JButton("Min Liste");
+    JPanel minListePanel = new JPanel();
+    JButton forsideBtn = new JButton("Forside");
+    JButton serierBtn = new JButton("Serier");
+    JButton filmBtn = new JButton("Film");
+    JButton minListeBtn = new JButton("Min Liste");
+    protected JLabel filmLabel;
     protected JLabel serieLabel = new JLabel("Serier!");
-    protected JLabel filmLabel = new JLabel("Film!");
     protected JLabel listeLabel = new JLabel("Min Liste!");
+
+//    Array list a film
+    protected ArrayList<JLabel> arrLabel= new ArrayList<>();
+    //Array liste af film titler
+    protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
+
+    //Arrayliste af paneler undtagen navPanel. Brug til display metode.
+    protected ArrayList<JPanel> arrPanel = new ArrayList<>();
+
+    //Array liste af knapper
+    protected  ArrayList<JButton> arrButtons = new ArrayList<>();
+
     public GUI (){
+        //Kalder fra film
+        Film f= new Film();
+        for (String film : f.alle_film()) {
+
+
+        try {
+            BufferedImage image = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
+            JLabel picLabel = new JLabel(new ImageIcon(image));
+//            forsidePanel.add(picLabel);
+        filmLabel = new JLabel(film);
+        arrLabel.add(picLabel);
+        arrLabelTitel.add(filmLabel);
+        } catch (Exception e) {
+            System.out.println("Kunne ikke finde billedet");
+        }
+        }
+
+        //Addere alle panelerne ind i en array liste undtagen navigations paneled.
+        arrPanel.add(forsidePanel);
+        arrPanel.add(filmPanel);
+        arrPanel.add(seriePanel);
+        arrPanel.add(minListePanel);
+
+        //Addere alle navigations knapper i en array liste
+        arrButtons.add(forsideBtn);
+        arrButtons.add(serierBtn);
+        arrButtons.add(filmBtn);
+        arrButtons.add(minListeBtn);
+
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
@@ -30,75 +75,73 @@ public class GUI {
         forsidePanel.setBackground(Color.white);
         seriePanel.setBackground(Color.yellow);
         filmPanel.setBackground(Color.blue);
-        listePanel.setBackground(Color.red);
+        minListePanel.setBackground(Color.red);
 
+        for (JPanel panel: arrPanel) {
+            panel.setBounds(0,100,1920,980);
+        }
         navPanel.setBounds(0,0,1920,100);
-        forsidePanel.setBounds(0,100,1920,980);
-        seriePanel.setBounds(0,100,1920,980);
-        filmPanel.setBounds(0,100,1920,980);
-        listePanel.setBounds(0,100,1920,980);
 
         navPanel.setVisible(true);
     }
     public void frameButtons() {
-        // Her definerer vi knappernes dimensioner og egenskaber
-        forside.setBounds(200,37,100,25);
-        serier.setBounds(325, 37, 100, 25);
-        film.setBounds(450,37,100,25);
-        minListe.setBounds(575,37,100,25);
+        int x = 200;
+        for (JButton button: arrButtons) {
+            // Her definerer vi knappernes dimensioner og egenskaber. Det er kun x værdien der ændres for hver knap
+            button.setBounds(x,37,100,25);
+            x+= 125;
+            // Focusable gør knapperne pæne (hvis focusable er true, vil der være en grim firkant rundt om teksten)
+            button.setFocusable(false);
 
-        // Focusable gør knapperne pæne (hvis focusable er true, vil der være en grim firkant rundt om teksten)
-        forside.setFocusable(false);
-        serier.setFocusable(false);
-        film.setFocusable(false);
-        minListe.setFocusable(false);
-
-        // Her tilføjer vi knapperne til vores frame
-        frame.add(minListe);
-        frame.add(film);
-        frame.add(forside);
-        frame.add(serier);
+            // Her tilføjer vi knapperne til vores frame
+            frame.add(button);
+        }
     }
     public void frameTabs() {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
-        forside.addActionListener(e -> {
-            seriePanel.setVisible(false);
-            filmPanel.setVisible(false);
-            listePanel.setVisible(false);
-            forsidePanel.setVisible(true);
+        forsideBtn.addActionListener(e -> {
+            displayPanel(forsidePanel);
         });
-        serier.addActionListener(e -> {
-            forsidePanel.setVisible(false);
-            filmPanel.setVisible(false);
-            listePanel.setVisible(false);
-            seriePanel.setVisible(true);
+        serierBtn.addActionListener(e -> {
+            displayPanel(seriePanel);
             seriePanel.setLayout(null);
 
             serieLabel.setBounds(100,50,100,50);
             seriePanel.add(serieLabel);
 
         });
-        film.addActionListener(e -> {
-            forsidePanel.setVisible(false);
-            seriePanel.setVisible(false);
-            listePanel.setVisible(false);
-            filmPanel.setVisible(true);
+        filmBtn.addActionListener(e -> {
+            displayPanel(filmPanel);
             filmPanel.setLayout(null);
 
-            filmLabel.setBounds(100,50,100,50);
-            filmPanel.add(filmLabel);
-        });
-        minListe.addActionListener(e -> {
+            int x = 0;
+            int y = 0;
+            int width = 140;
+            int height = 260;
+            int yText = 240;
+            for(int i = 0; i < arrLabel.size(); i++) {
+            if(x == 1400){
+                y+=height;
+                x=0;
+                yText+=yText+25;
+            }
+          //indlæser fra arrLabel og display hver film ud
+            arrLabel.get(i).setBounds(x,y,width,height);
+            arrLabelTitel.get(i).setBounds(x,yText,width,25);
+            filmPanel.add(arrLabel.get(i));
+            filmPanel.add(arrLabelTitel.get(i));
+            x+= 140;
+            }
 
-            forsidePanel.setVisible(false);
-            filmPanel.setVisible(false);
-            seriePanel.setVisible(false);
-            listePanel.setVisible(true);
-            listePanel.setLayout(null);
+        });
+        minListeBtn.addActionListener(e -> {
+
+            displayPanel(minListePanel);
+            minListePanel.setLayout(null);
 
             listeLabel.setBounds(100,50,100,50);
-            listePanel.add(listeLabel);
+            minListePanel.add(listeLabel);
         });
     }
     public void frameMethods() {
@@ -108,10 +151,20 @@ public class GUI {
         frame.setLayout(null);
         frame.setVisible(true);
 
+        //Addere alle panelerne til frame med for each loop
+        for (JPanel panel: arrPanel) {
+            frame.add(panel);
+        }
+        //navPanel er ikke en del af arrPanel, der den altid skal vises, så vi kalder bare add metoden for sig selv
         frame.add(navPanel);
-        frame.add(forsidePanel);
-        frame.add(seriePanel);
-        frame.add(filmPanel);
-        frame.add(listePanel);
+
+    }
+
+    public void displayPanel(JPanel currentPanel) {
+        //Viser kun den panel man vælger via action listener, og sætter de andre paneler visibility til false
+        for(JPanel panel: arrPanel) {
+            //Sæt panel til at være usynligt hvis panel ikke er lige med current panel
+            panel.setVisible(panel == currentPanel);
+        }
     }
 }

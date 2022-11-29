@@ -56,4 +56,25 @@ public class Medie {
 
     }
 
-}
+    public ArrayList<String> vis_medie(String filename){
+        ArrayList<String> medie_navn = new ArrayList<>();
+       try {
+           File file = new File(filename);
+           Scanner s = new Scanner(file);
+
+           while (s.hasNextLine()) {
+               String[] arrOfStrings = (s.nextLine()).split(";",4);
+               medie_navn.add(arrOfStrings[0]);
+
+           }
+           return medie_navn;
+       }
+       catch(FileNotFoundException e){
+            System.out.println("*** filen findes ikke!");
+            return null;
+        }
+        }
+
+    }
+
+
