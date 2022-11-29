@@ -3,13 +3,8 @@ import java.io.*;
 
 public class Medie {
     String titel;
-    //billeder;
-    //ArrayList<String> genre; //liste over de forskellige genrer der er.
-    //HashMap<String,List<String>> genre_map; //hashmap der mapper genre til arrayliste der indeholder genren.
-    //ArrayList<String> specifik_genre_liste; //genreliste for de specifikke genre.
 
-    Medie(){//konstruktør
-
+    Medie(){ //konstruktør
     }
 
     public HashMap<String,List<String>> test_sortering(String filename){
@@ -60,12 +55,5 @@ public class Medie {
 
 
     }
-
-
-
-
-
-
-
 
 }
