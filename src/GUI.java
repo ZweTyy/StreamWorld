@@ -30,7 +30,7 @@ public class GUI {
     protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel));
 
     //Array liste af JButton knapper
-    protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,forsideBtn,minListeBtn));
+    protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
     public GUI (){
         //Kalder fra film
