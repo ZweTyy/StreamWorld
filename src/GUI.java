@@ -36,6 +36,8 @@ public class GUI {
         filmPanel.setBackground(Color.blue);
         listePanel.setBackground(Color.red);
 
+        navPanel.setLayout(new FlowLayout());
+
         navPanel.setBounds(0,0,1920,100);
         forsidePanel.setBounds(0,100,1920,980);
         seriePanel.setBounds(0,100,1920,980);
@@ -58,10 +60,10 @@ public class GUI {
         minListe.setFocusable(false);
 
         // Her tilføjer vi knapperne til vores frame
-        frame.add(minListe);
-        frame.add(film);
-        frame.add(forside);
-        frame.add(serier);
+        navPanel.add(minListe);
+        navPanel.add(film);
+        navPanel.add(forside);
+        navPanel.add(serier);
     }
     public void frameTabs() {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
