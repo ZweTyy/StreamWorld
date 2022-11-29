@@ -26,11 +26,11 @@ public class GUI {
     //Array liste af film titler
     protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
 
-    //Arrayliste af paneler undtagen navPanel. Brug til display metode.
-    protected ArrayList<JPanel> arrPanel = new ArrayList<>();
+    //Arrayliste af JPaneler undtagen navPanel. Brug til display metode.
+    protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel));
 
-    //Array liste af knapper
-    protected  ArrayList<JButton> arrButtons = new ArrayList<>();
+    //Array liste af JButton knapper
+    protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,forsideBtn,minListeBtn));
 
     public GUI (){
         //Kalder fra film
@@ -49,18 +49,6 @@ public class GUI {
             System.out.println("Kunne ikke finde billedet");
         }
         }
-
-        //Addere alle panelerne ind i en array liste undtagen navigations paneled.
-        arrPanel.add(forsidePanel);
-        arrPanel.add(filmPanel);
-        arrPanel.add(seriePanel);
-        arrPanel.add(minListePanel);
-
-        //Addere alle navigations knapper i en array liste
-        arrButtons.add(forsideBtn);
-        arrButtons.add(serierBtn);
-        arrButtons.add(filmBtn);
-        arrButtons.add(minListeBtn);
 
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
