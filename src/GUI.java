@@ -1,5 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import  java.util.*;
 
 public class GUI {
@@ -20,14 +24,29 @@ public class GUI {
 
 //    Array list a film
     protected ArrayList<JLabel> arrLabel= new ArrayList<>();
+    protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
+
+    //load image
+    private BufferedImage image;
+
     public GUI (){
         //Kalder fra film
         Film f= new Film();
         for (String film : f.alle_film()) {
 
+
+        try {
+            BufferedImage myPicture = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
+            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//            forsidePanel.add(picLabel);
         filmLabel = new JLabel(film);
-        arrLabel.add(filmLabel);
+        arrLabel.add(picLabel);
+        arrLabelTitel.add(filmLabel);
+        } catch (Exception e) {
+            System.out.println("Kunne ikke finde billedet");
         }
+        }
+
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
@@ -97,17 +116,23 @@ public class GUI {
             filmPanel.setVisible(true);
             filmPanel.setLayout(null);
 
-            int x = 150;
-            int y = 50;
+            int x = 0;
+            int y = 0;
+            int width = 140;
+            int height = 260;
+            int yText = 240;
             for(int i = 0; i < arrLabel.size(); i++) {
-            if(x%900 == 0){
-                y+=50;
-                x=150;
+            if(x == 1400){
+                y+=height;
+                x=0;
+                yText+=yText+25;
             }
           //indlæser fra arrLabel og display hver film ud
-            arrLabel.get(i).setBounds(x,y,150,50);
+            arrLabel.get(i).setBounds(x,y,width,height);
+            arrLabelTitel.get(i).setBounds(x,yText,width,25);
             filmPanel.add(arrLabel.get(i));
-            x+= 150;
+            filmPanel.add(arrLabelTitel.get(i));
+            x+= 140;
             }
 
         });

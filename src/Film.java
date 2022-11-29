@@ -16,8 +16,12 @@ public class Film extends Medie{
     public static ArrayList<String> alle_film() {
         Medie m = new Film();
         m.vis_medie("src/txt/film.txt");
-
-
         return  m.vis_medie("src/txt/film.txt");
     }
+
+//    public static ArrayList<String> alle_serier() {
+//        Medie m = new Film();
+//        m.vis_medie("src/txt/film.txt");
+//        return  m.vis_medie("src/txt/film.txt");
+//    }
 }
