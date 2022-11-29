@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import  java.util.*;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
@@ -13,10 +14,20 @@ public class GUI {
     JButton serier = new JButton("Serier");
     JButton film = new JButton("Film");
     JButton minListe = new JButton("Min Liste");
+    protected JLabel filmLabel;
     protected JLabel serieLabel = new JLabel("Serier!");
-    protected JLabel filmLabel = new JLabel("Film!");
     protected JLabel listeLabel = new JLabel("Min Liste!");
+
+//    Array list a film
+    protected ArrayList<JLabel> arrLabel= new ArrayList<>();
     public GUI (){
+        //Kalder fra film
+        Film f= new Film();
+        for (String film : f.alle_film()) {
+
+        filmLabel = new JLabel(film);
+        arrLabel.add(filmLabel);
+        }
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
@@ -86,8 +97,19 @@ public class GUI {
             filmPanel.setVisible(true);
             filmPanel.setLayout(null);
 
-            filmLabel.setBounds(100,50,100,50);
-            filmPanel.add(filmLabel);
+            int x = 150;
+            int y = 50;
+            for(int i = 0; i < arrLabel.size(); i++) {
+            if(x%900 == 0){
+                y+=50;
+                x=150;
+            }
+          //indlæser fra arrLabel og display hver film ud
+            arrLabel.get(i).setBounds(x,y,150,50);
+            filmPanel.add(arrLabel.get(i));
+            x+= 150;
+            }
+
         });
         minListe.addActionListener(e -> {
 
