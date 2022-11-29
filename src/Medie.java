@@ -29,12 +29,12 @@ public class Medie {
                     String str = s.nextLine();
 
 
-                    String arrOfStr[] = str.split(";",4);
+                    String[] arrOfStr = str.split(";",4);
 
 
 
                     //System.out.println(arrOfStr[0]); //det er navnet og arrOfStr(2) er genrene
-                    String genrestring[]= arrOfStr[2].split(",",20);
+                    String[] genrestring= arrOfStr[2].split(",",20);
                     for(String element : genrestring){ //den her opdeler genre tilhørende en film
                         element = element.replace(" ", "");
 
