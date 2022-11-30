@@ -1,8 +1,11 @@
+import org.w3c.dom.ls.LSOutput;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import  java.util.*;
 
 public class GUI {
@@ -13,6 +16,10 @@ public class GUI {
     JPanel seriePanel = new JPanel();
     JPanel filmPanel = new JPanel();
     JPanel minListePanel = new JPanel();
+
+    JPanel watchPanel = new JPanel();
+
+    JButton titleBtn;
     JButton forsideBtn = new JButton("Forside");
     JButton serierBtn = new JButton("Serier");
     JButton filmBtn = new JButton("Film");
@@ -21,13 +28,13 @@ public class GUI {
     protected JLabel serieLabel = new JLabel("Serier!");
     protected JLabel listeLabel = new JLabel("Min Liste!");
 
-//    Array list a film
-    protected ArrayList<JLabel> arrLabel= new ArrayList<>();
+//    Array list a film som knapper
+    protected ArrayList<JButton> arrLabel= new ArrayList<>();
     //Array liste af film titler
     protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
 
     //Arrayliste af JPaneler undtagen navPanel. Brug til display metode.
-    protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel));
+    protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel,watchPanel));
 
     //Array liste af JButton knapper
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
@@ -36,25 +43,31 @@ public class GUI {
         //Kalder fra film
         Film f= new Film();
         for (String film : f.alle_film()) {
-
-
         try {
             BufferedImage image = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
-            JLabel picLabel = new JLabel(new ImageIcon(image));
-//            forsidePanel.add(picLabel);
-        filmLabel = new JLabel(film);
-        arrLabel.add(picLabel);
-        arrLabelTitel.add(filmLabel);
+            JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+            filmLabel = new JLabel(film);
+            arrLabel.add(picBtn);
+            arrLabelTitel.add(filmLabel);
+            btnMovie(picBtn);
         } catch (Exception e) {
             System.out.println("Kunne ikke finde billedet");
         }
         }
 
+        titleBtn = new JButton();
+        try {
+            BufferedImage image = ImageIO.read(new File("src/other/title.png"));
+            titleBtn = new JButton(new ImageIcon(image.getScaledInstance(100,50,Image.SCALE_SMOOTH)));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
         frameTabs();
         frameMethods();
+
     }
     public void framePanels() {
         /* Vi har alle vores paneler.
@@ -64,7 +77,9 @@ public class GUI {
         seriePanel.setBackground(Color.yellow);
         filmPanel.setBackground(Color.blue);
         minListePanel.setBackground(Color.red);
+        watchPanel.setBackground(Color.green);
 
+        watchPanel.setLayout(null);
         for (JPanel panel: arrPanel) {
             panel.setBounds(0,100,1920,980);
         }
@@ -73,6 +88,10 @@ public class GUI {
         navPanel.setVisible(true);
     }
     public void frameButtons() {
+            titleBtn.setBounds(0,37,100,50);
+        titleBtn.setBackground(Color.black);
+
+        frame.add(titleBtn);
         int x = 200;
         for (JButton button: arrButtons) {
             // Her definerer vi knappernes dimensioner og egenskaber. Det er kun x værdien der ændres for hver knap
@@ -80,7 +99,6 @@ public class GUI {
             x+= 125;
             // Focusable gør knapperne pæne (hvis focusable er true, vil der være en grim firkant rundt om teksten)
             button.setFocusable(false);
-
             // Her tilføjer vi knapperne til vores frame
             frame.add(button);
         }
@@ -131,6 +149,7 @@ public class GUI {
             listeLabel.setBounds(100,50,100,50);
             minListePanel.add(listeLabel);
         });
+
     }
     public void frameMethods() {
 
@@ -155,4 +174,14 @@ public class GUI {
             panel.setVisible(panel == currentPanel);
         }
     }
+
+    public void btnMovie(JButton btn) {
+        watchPanel.removeAll();
+        btn.addActionListener(e -> {
+            btn.setBounds(0,0,200,300);
+            displayPanel(watchPanel);
+            watchPanel.add(btn);
+        });
+    }
+
 }
