@@ -8,6 +8,7 @@ import  java.util.*;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
+<<<<<<< HEAD
     JFrame frame = new JFrame();
     JPanel navPanel = new JPanel();
     JPanel forsidePanel = new JPanel();
@@ -19,8 +20,21 @@ public class GUI {
     JButton film = new JButton("Film");
     JButton minListe = new JButton("Min Liste");
     protected JLabel filmLabel;
+=======
+    protected JFrame frame = new JFrame();
+    protected JPanel navPanel = new JPanel();
+    protected JPanel forsidePanel = new JPanel();
+    protected JPanel seriePanel = new JPanel();
+    protected JPanel filmPanel = new JPanel();
+    protected JPanel listePanel = new JPanel();
+    protected JButton forside = new JButton("Forside");
+    protected JButton serier = new JButton("Serier");
+    protected JButton film = new JButton("Film");
+    protected JButton minListe = new JButton("Min Liste");
+>>>>>>> combobox
     protected JLabel serieLabel = new JLabel("Serier!");
     protected JLabel listeLabel = new JLabel("Min Liste!");
+<<<<<<< HEAD
 
 //    Array list a film
     protected ArrayList<JLabel> arrLabel= new ArrayList<>();
@@ -29,10 +43,17 @@ public class GUI {
     //load image
     private BufferedImage image;
 
+=======
+    String[] genre = {"Crime", "War", "Drama", "Family", "Romance", "Sci-fi", "Talk-show", "Documentary", "Action", "Adventure",
+            "Comedy", "Fantasy", "Animation", "Horror", "Thriller", "Mystery", "Biography", "History", "Western", "Sport"};
+    JComboBox comboBox = new JComboBox(genre);
+>>>>>>> combobox
     public GUI (){
         //Kalder fra film
         Film f= new Film();
         for (String film : f.alle_film()) {
+
+
         try {
             BufferedImage myPicture = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
             JLabel picLabel = new JLabel(new ImageIcon(myPicture));
@@ -50,6 +71,7 @@ public class GUI {
         frameButtons();
         frameTabs();
         frameMethods();
+
     }
     public void framePanels() {
         /* Vi har alle vores paneler.
@@ -59,6 +81,8 @@ public class GUI {
         seriePanel.setBackground(Color.yellow);
         filmPanel.setBackground(Color.blue);
         listePanel.setBackground(Color.red);
+
+        navPanel.setLayout(new FlowLayout());
 
         navPanel.setBounds(0,0,1920,100);
         forsidePanel.setBounds(0,100,1920,980);
@@ -82,10 +106,10 @@ public class GUI {
         minListe.setFocusable(false);
 
         // Her tilføjer vi knapperne til vores frame
-        frame.add(minListe);
-        frame.add(film);
-        frame.add(forside);
-        frame.add(serier);
+        navPanel.add(minListe);
+        navPanel.add(film);
+        navPanel.add(forside);
+        navPanel.add(serier);
     }
     public void frameTabs() {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
@@ -95,6 +119,7 @@ public class GUI {
             filmPanel.setVisible(false);
             listePanel.setVisible(false);
             forsidePanel.setVisible(true);
+            seriePanel.setLayout(null);
         });
         serier.addActionListener(e -> {
             forsidePanel.setVisible(false);
@@ -102,6 +127,8 @@ public class GUI {
             listePanel.setVisible(false);
             seriePanel.setVisible(true);
             seriePanel.setLayout(null);
+
+            serier.add(comboBox);
 
             serieLabel.setBounds(100,50,100,50);
             seriePanel.add(serieLabel);
@@ -114,6 +141,7 @@ public class GUI {
             filmPanel.setVisible(true);
             filmPanel.setLayout(null);
 
+<<<<<<< HEAD
             int x = 0;
             int y = 0;
             int width = 140;
@@ -133,6 +161,12 @@ public class GUI {
             x+= 140;
             }
 
+=======
+            film.add(comboBox);
+
+            filmLabel.setBounds(100,50,100,50);
+            filmPanel.add(filmLabel);
+>>>>>>> combobox
         });
         minListe.addActionListener(e -> {
 
@@ -141,6 +175,8 @@ public class GUI {
             seriePanel.setVisible(false);
             listePanel.setVisible(true);
             listePanel.setLayout(null);
+
+            minListe.add(comboBox);
 
             listeLabel.setBounds(100,50,100,50);
             listePanel.add(listeLabel);
