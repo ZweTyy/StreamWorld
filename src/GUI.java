@@ -1,4 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -10,7 +9,7 @@ import  java.util.*;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("Stream World");
     JPanel navPanel = new JPanel();
     JPanel forsidePanel = new JPanel();
     JPanel seriePanel = new JPanel();
@@ -39,7 +38,11 @@ public class GUI {
     //Array liste af JButton knapper
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
+    //scroll bar
+    protected JScrollPane scroll;
+
     public GUI (){
+
         //Kalder fra film
         Film f= new Film();
         for (String film : f.alle_film()) {
@@ -49,19 +52,20 @@ public class GUI {
             filmLabel = new JLabel(film);
             arrLabel.add(picBtn);
             arrLabelTitel.add(filmLabel);
-            btnMovie(picBtn);
+            btnMovie(picBtn, film);
         } catch (Exception e) {
-            System.out.println("Kunne ikke finde billedet");
-        }
+            System.out.println("Kunne ikke loade " + film);
+            }
         }
 
         titleBtn = new JButton();
         try {
             BufferedImage image = ImageIO.read(new File("src/other/title.png"));
-            titleBtn = new JButton(new ImageIcon(image.getScaledInstance(100,50,Image.SCALE_SMOOTH)));
+            titleBtn = new JButton(new ImageIcon(image.getScaledInstance(200,100,Image.SCALE_SMOOTH)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         // Vi kalder alle vores metoder i vores konstruktør så det er mere organiseret
         framePanels();
         frameButtons();
@@ -73,32 +77,44 @@ public class GUI {
         /* Vi har alle vores paneler.
            Det er her vi ændrer og definerer hvordan vores paneler skal se ud */
         navPanel.setBackground(Color.black);
-        forsidePanel.setBackground(Color.white);
+        forsidePanel.setBackground(new Color(32,32,32));
         seriePanel.setBackground(Color.yellow);
-        filmPanel.setBackground(Color.blue);
+        filmPanel.setBackground(new Color(32,32,32));
         minListePanel.setBackground(Color.red);
-        watchPanel.setBackground(Color.green);
-
+        watchPanel.setBackground(new Color(32,32,32));
         watchPanel.setLayout(null);
+
         for (JPanel panel: arrPanel) {
-            panel.setBounds(0,100,1920,980);
+            panel.setBounds(0,100,1920,1980);
         }
         navPanel.setBounds(0,0,1920,100);
-
+        filmPanel.setVisible(false);
         navPanel.setVisible(true);
     }
     public void frameButtons() {
-            titleBtn.setBounds(0,37,100,50);
+        titleBtn.setBounds(0,0,200,100);
         titleBtn.setBackground(Color.black);
+        titleBtn.setOpaque(true); //Sæt den her til true, for at for et farvet baggrund
+        titleBtn.setBorderPainted(false);
+        titleBtn.setFocusable(false);
 
         frame.add(titleBtn);
         int x = 200;
         for (JButton button: arrButtons) {
             // Her definerer vi knappernes dimensioner og egenskaber. Det er kun x værdien der ændres for hver knap
-            button.setBounds(x,37,100,25);
-            x+= 125;
+            button.setBounds(x,37,200,25);
+            x+= 200;
             // Focusable gør knapperne pæne (hvis focusable er true, vil der være en grim firkant rundt om teksten)
             button.setFocusable(false);
+            button.setBackground(Color.black);
+            button.setForeground(Color.white);
+            button.setOpaque(true); //Sæt den her til true, for at for et farvet baggrund
+            button.setBorderPainted(false);
+//           "Arial" is obviously the name of the font being used.
+//           Font.PLAIN means plain text (as opposed to bold or italic).
+//           40 is the font size (using the same numbering system for font size as Microsoft Word)
+            button.setFont(new Font("Arial", Font.PLAIN, 25));
+
             // Her tilføjer vi knapperne til vores frame
             frame.add(button);
         }
@@ -120,24 +136,23 @@ public class GUI {
         filmBtn.addActionListener(e -> {
             displayPanel(filmPanel);
             filmPanel.setLayout(null);
-
             int x = 0;
             int y = 0;
             int width = 140;
             int height = 260;
             int yText = 240;
             for(int i = 0; i < arrLabel.size(); i++) {
-            if(x == 1400){
-                y+=height;
-                x=0;
-                yText+=yText+25;
-            }
-          //indlæser fra arrLabel og display hver film ud
-            arrLabel.get(i).setBounds(x,y,width,height);
-            arrLabelTitel.get(i).setBounds(x,yText,width,25);
-            filmPanel.add(arrLabel.get(i));
-            filmPanel.add(arrLabelTitel.get(i));
-            x+= 140;
+                if(x == 1400){
+                    y+=height;
+                    x=0;
+                    yText+=yText+25;
+                }
+                //indlæser fra arrLabel og display hver film ud
+                arrLabel.get(i).setBounds(x,y,width,height);
+                arrLabelTitel.get(i).setBounds(x,yText,width,25);
+                filmPanel.add(arrLabel.get(i));
+//            filmPanel.add(arrLabelTitel.get(i));
+                x+= 140;
             }
 
         });
@@ -154,20 +169,23 @@ public class GUI {
     public void frameMethods() {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1920,1080);
+        frame.setSize(1500,700);
         frame.setLayout(null);
         frame.setVisible(true);
 
         //Addere alle panelerne til frame med for each loop
         for (JPanel panel: arrPanel) {
+//            Adder scrollbar på hvert panel
             frame.add(panel);
         }
         //navPanel er ikke en del af arrPanel, der den altid skal vises, så vi kalder bare add metoden for sig selv
         frame.add(navPanel);
 
+
     }
 
     public void displayPanel(JPanel currentPanel) {
+
         //Viser kun den panel man vælger via action listener, og sætter de andre paneler visibility til false
         for(JPanel panel: arrPanel) {
             //Sæt panel til at være usynligt hvis panel ikke er lige med current panel
@@ -175,13 +193,19 @@ public class GUI {
         }
     }
 
-    public void btnMovie(JButton btn) {
-        watchPanel.removeAll();
+    public void btnMovie(JButton btn, String title) {
         btn.addActionListener(e -> {
+        watchPanel.removeAll();
             btn.setBounds(0,0,200,300);
+            JLabel titleLabel = new JLabel("Titel: " + title);
+            titleLabel.setBounds(250,10,500,100);
+            titleLabel.setForeground(Color.WHITE);
+            titleLabel.setFont(new Font("Serif", Font.PLAIN, 28));
             displayPanel(watchPanel);
             watchPanel.add(btn);
+            watchPanel.add(titleLabel);
         });
     }
+
 
 }
