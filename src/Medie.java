@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Medie {
+public abstract class Medie {
     String titel;
 
     Medie(){ //konstruktør
