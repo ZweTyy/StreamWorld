@@ -3,9 +3,48 @@ import java.io.*;
 
 public abstract class Medie {
     String titel;
+    String aarstal;
+    String rating;
 
-    Medie(){ //konstruktør
+    //konstruktør
+    Medie(String titel, String aarstal, String rating) {
+        this.aarstal = aarstal;
+        this.titel = titel;
+        this.rating = rating;
     }
+
+    public ArrayList<Medie> arrList(Medie obj, String filenavn) {
+        ArrayList<Medie> arrObj = new ArrayList<>();
+
+        try {
+            File file = new File("src/txt/" + filenavn + ".txt");
+            Scanner s = new Scanner(file);
+
+            while (s.hasNextLine()) {
+
+                String str = s.nextLine();
+                String[] arrOfStr = str.split(";", 5);
+                // 0 = titel 1 = aarstal 2 = genre 3 = rating
+                String titel = arrOfStr[0];
+                String aarstal = arrOfStr[1].replace(" ", "");
+                String rating = arrOfStr[3].replace(" ", "").replace(";", "");
+
+                if (!Objects.equals(obj, new Film("Hej", "med", "dig"))) {
+                    Film f = new Film(titel, aarstal, rating);
+                    arrObj.add(f);
+                }
+
+                // en arrayliste med instanser af filmobjekter
+
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+                return arrObj;
+    }
+
+
 
     public HashMap<String,List<String>> test_sortering(String filename){
         ArrayList<String> genre = new ArrayList<>(Arrays.asList("Crime","War","Drama","Family","Romance","Sci-fi","Biography","Musical","Adventure","Action","Thriller","Mystery","History","Fantasy","Comedy","Film-Noir","Horror","Western","Sport","Music"));
@@ -25,8 +64,6 @@ public abstract class Medie {
 
 
                     String[] arrOfStr = str.split(";",4);
-
-
 
                     //System.out.println(arrOfStr[0]); //det er navnet og arrOfStr(2) er genrene
                     String[] genrestring= arrOfStr[2].split(",",20);
@@ -56,7 +93,7 @@ public abstract class Medie {
 
     }
 
-    public ArrayList<String> vis_medie(String filename){
+    public static ArrayList<String> vis_medie(String filename){
         ArrayList<String> medie_navn = new ArrayList<>();
        try {
            File file = new File(filename);
@@ -74,6 +111,12 @@ public abstract class Medie {
             return null;
         }
         }
+
+    public static ArrayList<String> display_medie(String filename) {
+
+        vis_medie("src/txt/"+filename+".txt");
+        return  vis_medie("src/txt/"+filename+"..txt");
+    }
 
     }
 

@@ -28,7 +28,10 @@ public class GUI {
     protected JLabel listeLabel = new JLabel("Min Liste!");
 
 //    Array list a film som knapper
-    protected ArrayList<JButton> arrLabel= new ArrayList<>();
+    protected ArrayList<JButton> arrBtnMedie = new ArrayList<>();
+
+    protected ArrayList<JButton> arrBtnSerier = new ArrayList<>();
+
     //Array liste af film titler
     protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
 
@@ -38,27 +41,42 @@ public class GUI {
     //Array liste af JButton knapper
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
+
     //scroll bar
     protected JScrollPane scroll;
 
-    public GUI (){
+    public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
 
+        ArrayList<ArrayList<Medie>> arrMedie = new ArrayList<>(Arrays.asList(arrFilm,arrSerier));
         //Kalder fra film
-        Film f= new Film();
-        for (String film : f.alle_film()) {
-        try {
-            BufferedImage image = ImageIO.read(new File("src/filmplakater/"+film+".jpg"));
-            JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
-            filmLabel = new JLabel(film);
-            arrLabel.add(picBtn);
-            arrLabelTitel.add(filmLabel);
-            btnMovie(picBtn, film);
-        } catch (Exception e) {
-            System.out.println("Kunne ikke loade " + film);
+        //Film f= new Film();
+
+            for (Medie m : arrFilm) {
+            try {
+                BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+                filmLabel = new JLabel(m.titel);
+                arrBtnMedie.add(picBtn);
+                arrLabelTitel.add(filmLabel);
+                btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+            } catch (Exception e) {
+                System.out.println("Kunne ikke loade " + m.titel);
+                }
+            }
+
+        for (Medie m : arrSerier) {
+            try {
+                BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+                serieLabel = new JLabel(m.titel);
+                arrBtnSerier.add(picBtn);
+                arrLabelTitel.add(serieLabel);
+                btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+            } catch (Exception e) {
+                System.out.println("Kunne ikke loade " + m.titel);
             }
         }
 
-        titleBtn = new JButton();
         try {
             BufferedImage image = ImageIO.read(new File("src/other/title.png"));
             titleBtn = new JButton(new ImageIcon(image.getScaledInstance(200,100,Image.SCALE_SMOOTH)));
@@ -122,6 +140,11 @@ public class GUI {
     public void frameTabs() {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
+
+        titleBtn.addActionListener(e -> {
+            displayPanel((forsidePanel));
+        });
+
         forsideBtn.addActionListener(e -> {
             displayPanel(forsidePanel);
         });
@@ -129,6 +152,24 @@ public class GUI {
             displayPanel(seriePanel);
             seriePanel.setLayout(null);
 
+            int x = 0;
+            int y = 0;
+            int width = 140;
+            int height = 260;
+            int yText = 240;
+            for(int i = 0; i < arrBtnMedie.size(); i++) {
+                if(x == 1400){
+                    y+=height;
+                    x=0;
+                    yText+=yText+25;
+                }
+                //indlæser fra arrLabel og display hver film ud
+                arrBtnSerier.get(i).setBounds(x,y,width,height);
+                arrLabelTitel.get(i).setBounds(x,yText,width,25);
+                seriePanel.add(arrBtnSerier.get(i));
+//            filmPanel.add(arrLabelTitel.get(i));
+                x+= 140;
+            }
             serieLabel.setBounds(100,50,100,50);
             seriePanel.add(serieLabel);
 
@@ -141,16 +182,16 @@ public class GUI {
             int width = 140;
             int height = 260;
             int yText = 240;
-            for(int i = 0; i < arrLabel.size(); i++) {
+            for(int i = 0; i < arrBtnMedie.size(); i++) {
                 if(x == 1400){
                     y+=height;
                     x=0;
                     yText+=yText+25;
                 }
                 //indlæser fra arrLabel og display hver film ud
-                arrLabel.get(i).setBounds(x,y,width,height);
+                arrBtnMedie.get(i).setBounds(x,y,width,height);
                 arrLabelTitel.get(i).setBounds(x,yText,width,25);
-                filmPanel.add(arrLabel.get(i));
+                filmPanel.add(arrBtnMedie.get(i));
 //            filmPanel.add(arrLabelTitel.get(i));
                 x+= 140;
             }
@@ -193,17 +234,24 @@ public class GUI {
         }
     }
 
-    public void btnMovie(JButton btn, String title) {
+    public void btnMovie(JButton btn, String title, String aarstal, String rating) {
+
+        ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating));
         btn.addActionListener(e -> {
         watchPanel.removeAll();
-            btn.setBounds(0,0,200,300);
-            JLabel titleLabel = new JLabel("Titel: " + title);
-            titleLabel.setBounds(250,10,500,100);
-            titleLabel.setForeground(Color.WHITE);
-            titleLabel.setFont(new Font("Serif", Font.PLAIN, 28));
+        int y = 10;
+            for (String info : arrInfo) {
+                JLabel infoLabel = new JLabel(info);
+                infoLabel.setBounds(250,y,500,100);
+                infoLabel.setForeground(Color.WHITE);
+                infoLabel.setFont(new Font("Serif", Font.PLAIN, 28));
+                watchPanel.add(infoLabel);
+                y+= 100;
+            }
+
             displayPanel(watchPanel);
+            btn.setBounds(0,0,200,300);
             watchPanel.add(btn);
-            watchPanel.add(titleLabel);
         });
     }
 
