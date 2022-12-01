@@ -1,11 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="ce8ac828-c18a-4b4e-93f5-afa173eeeb08" name="Changes" comment="" />
-=======
-    <list default="true" id="24e90551-1f7d-4143-9a0b-8349389b4d31" name="Changes" comment="" />
->>>>>>> Stashed changes
+    <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/12 Angry Men.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/2001 A Space Odyssey.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/A Clockwork Orange.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/A Philadelphia Story.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/A Place In The Sun.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/A Streetcar Named Desire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/All Quiet On The Western Front.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Amadeus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/American Graffiti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/An American In Paris.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Annie Hall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Apocalypse Now.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Ben Hur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Bonny And Clyde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Braveheart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Butch Cassidy And The Sundance Kid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Casablanca.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Chinatown.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Citizen Kane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/City Lights.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Close Encounters.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Dances With Wolves.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Doctor Zhivago.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Double Indemnity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Dr. Strangelove Or How I Learned To Stop Worrying And Love The Bomb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/ET.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Fargo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Forrest Gump.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/From Here To Eternity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Giant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Gone With The Wind.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Good Will Hunting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Goodfellas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Grapes Of Wrath.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/High Noon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/It Happened One Night.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/It's A Wonderful Life.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Jaws.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Jurassic Park.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Lawrence Of Arabia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Lord Of The Rings - The Return Of The King.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Midnight Cowboy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Mr Smith Goes To Washington.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Mutiny On The Bounty.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/My Fair Lady.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Nashville.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Network.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/North By Northwest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/On The Waterfront.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/One Flew Over The Cuckoo's Nest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Patton.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Platoon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Psycho.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Pulp Fiction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Raging Bull.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Raiders Of The Lost Ark.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Rain Man.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Rear Window.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Rebel Without A Cause.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Rocky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Saving Private Ryan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Schindler's List.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Shane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Singin' In The Rain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Some Like It Hot.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Stagecoach.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Star Wars.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Sunset Boulevard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Taxi Driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Terms of Endearment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The African Queen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Apartment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Best Years Of Our Lives.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Bridge Over The River Kwai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Deer Hunter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Exorcist.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The French Connection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Godfather part II.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Good, The Bad And The Ugly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Graduate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Great Dictator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Green Mile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Maltese Falcon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Pianist.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Searchers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Shawshank Redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Silence Of The Lambs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Sound Of Music.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Third Man.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Treasure Of The Sierra Madre.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/The Wizard Of Oz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Titanic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/To Kill A Mockingbird.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Unforgiven.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Vertigo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/West Side Story.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Wuthering Heights.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmplakater/Yankee Doodle Dandy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Alfred Hitchcock Presents.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/All In The Family.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Ally McBeal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Angel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Arrested Development.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Band Of Brothers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Banshee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Batman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Battlestar Galactica.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Better Call Saul.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Big Little Lies.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Billions.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Boardwalk Empire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Breaking Bad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Buffy The Vampire Slayer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Californication.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Cheers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Crisis In Six Scenes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Curb Your Enthusiasm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Da Ali G Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Damages.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Daredevil.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Deadwood.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Dekalog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Dexter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Doctor Thorne.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Entourage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Family Ties.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Fear The Walking Dead.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Firefly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Flying Blind.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Fraiser.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Freaks And Geeks.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/GLOW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Game Of Thrones.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Girls.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Homeland.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Horace and Pete's.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/House Of Cards.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/House.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/I Claudius.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/I Love Lucy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/It's Garry Shandling's Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Jessica Jones.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Justified.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Lonesome Dove.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Lost.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Louie.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Lucky Louie.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Luke Cage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Mad Men.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Married With Children.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Mr Show With Bob And David.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Night Court.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Northern Exposure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/On The Air.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Person Of Interest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Planet Earth.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Pride And Prejudice.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Ray Donovan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Revenge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Rome.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Scener ur ett „ktenskap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Seinfeld.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Sex &amp; The City.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Shameless.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Show Me A Hero.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Slings And Arrows.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Smallville.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Sons Of Anarchy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/South Park.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Spaced.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Spartacus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Star Trek.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Stranger Things.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Americans.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Civil War.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Defenders.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Honeymooners.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Larry Sanders Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Man In The High Castle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Marvelous Mrs Maisel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Punisher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Shield.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Simpsons.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Sopranos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Strain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Twilight Zone.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Walking Dead.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Way We Live Now.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/The Wire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Three's Company.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Top Of The Lake.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/True Blood.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Twin Peaks.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Tyrant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/V.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serieforsider/Welt Am Draht.jpg" beforeDir="false" />
+    </list>
+    <list id="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" name="Changes by annadiers" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Film.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,92 +225,72 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1669894909" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="Button-fucntion" />
-                    <option name="lastUsedInstant" value="1669761546" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Film.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="8" changelist="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" />
+        <range start1="5" end1="11" start2="9" end2="17" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="12" end1="20" start2="18" end2="18" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2IDikqADzg3gFZZxskNYk8s3UFp" />
+  <component name="ProjectId" id="2IJPywNsXqyOyu0ZivoZzbG8N7f" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/StreamWorld&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/other" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/txt" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MainCode" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="StreamWorld" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="StreamWorld" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce8ac828-c18a-4b4e-93f5-afa173eeeb08" name="Changes" comment="" />
-      <created>1669722700604</created>
+      <changelist id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="" />
+      <created>1669896970300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669722700604</updated>
-      <workItem from="1669722701869" duration="625000" />
-      <workItem from="1669723399111" duration="16112000" />
-      <workItem from="1669756327649" duration="469000" />
-      <workItem from="1669756810454" duration="167000" />
-      <workItem from="1669756987388" duration="28000" />
-      <workItem from="1669757044961" duration="5000" />
-      <workItem from="1669757138380" duration="1196000" />
-      <workItem from="1669760212162" duration="1370000" />
-      <workItem from="1669761600988" duration="272000" />
-      <workItem from="1669761893818" duration="3106000" />
-      <workItem from="1669765190192" duration="20105000" />
-      <workItem from="1669894315757" duration="446000" />
-      <workItem from="1669894817081" duration="491000" />
-      <workItem from="1669895322249" duration="42000" />
+      <updated>1669896970300</updated>
+      <workItem from="1669896972460" duration="320000" />
+      <workItem from="1669897519941" duration="10280000" />
     </task>
     <servers />
   </component>
@@ -123,9 +307,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
