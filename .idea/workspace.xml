@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce8ac828-c18a-4b4e-93f5-afa173eeeb08" name="Changes" comment="" />
+    <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,38 +14,10 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1669894909" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="Button-fucntion" />
-                    <option name="lastUsedInstant" value="1669761546" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2IDikqADzg3gFZZxskNYk8s3UFp" />
+  <component name="ProjectId" id="2IJPywNsXqyOyu0ZivoZzbG8N7f" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,73 +27,42 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/StreamWorld&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/other" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/txt" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="StreamWorld" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="StreamWorld" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce8ac828-c18a-4b4e-93f5-afa173eeeb08" name="Changes" comment="" />
-      <created>1669722700604</created>
+      <changelist id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="" />
+      <created>1669896970300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669722700604</updated>
-      <workItem from="1669722701869" duration="625000" />
-      <workItem from="1669723399111" duration="16112000" />
-      <workItem from="1669756327649" duration="469000" />
-      <workItem from="1669756810454" duration="167000" />
-      <workItem from="1669756987388" duration="28000" />
-      <workItem from="1669757044961" duration="5000" />
-      <workItem from="1669757138380" duration="1196000" />
-      <workItem from="1669760212162" duration="1370000" />
-      <workItem from="1669761600988" duration="272000" />
-      <workItem from="1669761893818" duration="3106000" />
-      <workItem from="1669765190192" duration="20105000" />
-      <workItem from="1669894315757" duration="446000" />
-      <workItem from="1669894817081" duration="491000" />
-      <workItem from="1669895322249" duration="42000" />
+      <updated>1669896970300</updated>
+      <workItem from="1669896972460" duration="320000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
