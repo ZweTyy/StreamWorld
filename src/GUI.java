@@ -39,39 +39,35 @@ public class GUI {
     protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel,watchPanel));
 
     //Array liste af JButton knapper
-    protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
+    protected  ArrayList<JButton> arrNavBtn = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
-
-    //scroll bar
-    protected JScrollPane scroll;
-
+    //Scroll panel
+//    JPanel scrollPanel = new JPanel();
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
 
         ArrayList<ArrayList<Medie>> arrMedie = new ArrayList<>(Arrays.asList(arrFilm,arrSerier));
-        //Kalder fra film
-        //Film f= new Film();
 
-            for (Medie m : arrFilm) {
+            for (Medie m : arrMedie.get(0)) {
             try {
                 BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                 JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
                 filmLabel = new JLabel(m.titel);
                 arrBtnMedie.add(picBtn);
                 arrLabelTitel.add(filmLabel);
-                btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                showMovie(picBtn, m.titel, m.aarstal, m.rating);
             } catch (Exception e) {
                 System.out.println("Kunne ikke loade " + m.titel);
                 }
             }
 
-        for (Medie m : arrSerier) {
+        for (Medie m : arrMedie.get(1)) {
             try {
                 BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                 JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
                 serieLabel = new JLabel(m.titel);
                 arrBtnSerier.add(picBtn);
                 arrLabelTitel.add(serieLabel);
-                btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                showMovie(picBtn, m.titel, m.aarstal, m.rating);
             } catch (Exception e) {
                 System.out.println("Kunne ikke loade " + m.titel);
             }
@@ -94,20 +90,20 @@ public class GUI {
     public void framePanels() {
         /* Vi har alle vores paneler.
            Det er her vi ændrer og definerer hvordan vores paneler skal se ud */
-        navPanel.setBackground(Color.black);
+        navPanel.setBackground(Color.green);
         forsidePanel.setBackground(new Color(32,32,32));
         seriePanel.setBackground(Color.yellow);
         filmPanel.setBackground(new Color(32,32,32));
         minListePanel.setBackground(Color.red);
         watchPanel.setBackground(new Color(32,32,32));
-        watchPanel.setLayout(null);
+//        watchPanel.setLayout(null);
 
         for (JPanel panel: arrPanel) {
             panel.setBounds(0,100,1920,1980);
         }
         navPanel.setBounds(0,0,1920,100);
-        filmPanel.setVisible(false);
-        navPanel.setVisible(true);
+
+
     }
     public void frameButtons() {
         titleBtn.setBounds(0,0,200,100);
@@ -116,12 +112,10 @@ public class GUI {
         titleBtn.setBorderPainted(false);
         titleBtn.setFocusable(false);
 
-        frame.add(titleBtn);
-        int x = 200;
-        for (JButton button: arrButtons) {
+        navPanel.add(titleBtn);
+        for (JButton button: arrNavBtn) {
             // Her definerer vi knappernes dimensioner og egenskaber. Det er kun x værdien der ændres for hver knap
-            button.setBounds(x,37,200,25);
-            x+= 200;
+            button.setBounds(0,0,200,25);
             // Focusable gør knapperne pæne (hvis focusable er true, vil der være en grim firkant rundt om teksten)
             button.setFocusable(false);
             button.setBackground(Color.black);
@@ -134,7 +128,8 @@ public class GUI {
             button.setFont(new Font("Arial", Font.PLAIN, 25));
 
             // Her tilføjer vi knapperne til vores frame
-            frame.add(button);
+            navPanel.add(button);
+
         }
     }
     public void frameTabs() {
@@ -142,7 +137,9 @@ public class GUI {
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
 
         titleBtn.addActionListener(e -> {
-            displayPanel((forsidePanel));
+//            displayPanel((forsidePanel));
+            displayPanel(forsidePanel);
+
         });
 
         forsideBtn.addActionListener(e -> {
@@ -150,7 +147,7 @@ public class GUI {
         });
         serierBtn.addActionListener(e -> {
             displayPanel(seriePanel);
-            seriePanel.setLayout(null);
+//            seriePanel.setLayout(null);
 
             int x = 0;
             int y = 0;
@@ -176,7 +173,7 @@ public class GUI {
         });
         filmBtn.addActionListener(e -> {
             displayPanel(filmPanel);
-            filmPanel.setLayout(null);
+            filmPanel.setLayout(new GridLayout(5,50));
             int x = 0;
             int y = 0;
             int width = 140;
@@ -200,7 +197,7 @@ public class GUI {
         minListeBtn.addActionListener(e -> {
 
             displayPanel(minListePanel);
-            minListePanel.setLayout(null);
+//            minListePanel.setLayout(null);
 
             listeLabel.setBounds(100,50,100,50);
             minListePanel.add(listeLabel);
@@ -211,7 +208,7 @@ public class GUI {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500,700);
-        frame.setLayout(null);
+//        frame.setLayout(null);
         frame.setVisible(true);
 
         //Addere alle panelerne til frame med for each loop
@@ -219,10 +216,12 @@ public class GUI {
 //            Adder scrollbar på hvert panel
             frame.add(panel);
         }
+        JScrollPane scroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.add(filmPanel);
+        frame.setBackground(new Color(0, 89, 255));
+        navPanel.setLayout(new GridLayout(1,1));
         //navPanel er ikke en del af arrPanel, der den altid skal vises, så vi kalder bare add metoden for sig selv
         frame.add(navPanel);
-
-
     }
 
     public void displayPanel(JPanel currentPanel) {
@@ -234,7 +233,7 @@ public class GUI {
         }
     }
 
-    public void btnMovie(JButton btn, String title, String aarstal, String rating) {
+    public void showMovie(JButton btn, String title, String aarstal, String rating) {
 
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating));
         btn.addActionListener(e -> {

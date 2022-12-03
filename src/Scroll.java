@@ -11,9 +11,9 @@ public class Scroll{
         Color grey = new Color(166, 166, 166);
         Color red = new Color(255, 102, 102);
 
-        // Create the JFrame
+//         Create the JFrame
         JFrame f = new JFrame("World");
-        //button will be added to this panel
+//        button will be added to this panel
         JPanel myPanel = new JPanel();
 
         // Creating the JButtons. They're added to the JFrame at the end of the code.
@@ -66,13 +66,17 @@ public class Scroll{
         myPanel.add(wall);
         myPanel.add(avatar);
 
+        myPanel.setBackground(Color.ORANGE);
+
         //notice how the panel is dropped inside the scroll pane
         JScrollPane scroll = new JScrollPane(myPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         //        scroll.setVisible(true);
-        //f.add(scroll);  // This adds the scroll bars but doesn't actually make them work.
+//        f.add(scroll);  // This adds the scroll bars but doesn't actually make them work.
 
-        //finally add the scroll to frame's content pane .. which is more proper than adding to frame directly
-        f.getContentPane().add(scroll, BorderLayout.CENTER);
+//        finally add the scroll to frame's content pane .. which is more proper than adding to frame directly
+        myPanel.setLayout( new GridLayout(10,2));
+//        f.setLayout(null);
+        f.getContentPane().add(scroll);
         f.setSize(800, 200);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);

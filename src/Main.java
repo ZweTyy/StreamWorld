@@ -10,17 +10,16 @@ public class Main {
     static ArrayList<Medie> arrSerier = new ArrayList<>();
     public static void main(String[] args) {
 
-
-
-
-
         Medie m = new Film("string","string","string");
         Medie n = new Serier("string","string","string");
         arrFilm = m.arrList(m, "film");
         arrSerier = n.arrList(m, "serier");
 
 
-        GUI forside = new GUI(arrFilm, arrSerier);
+//        GUI forside = new GUI(arrFilm, arrSerier);
+        Pcroll p = new Pcroll(arrFilm,arrSerier);
+
+//        Scroll scroll = new Scroll();
     }
 
 }
