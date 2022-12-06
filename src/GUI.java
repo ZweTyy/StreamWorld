@@ -211,7 +211,7 @@ public class GUI {
 
     public void btnMovie(JButton btn, String title, String aarstal, String rating) {
 
-        ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating));
+        ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
         btn.addActionListener(e -> {
             display(watchScroll);
             watchPanel.removeAll();
@@ -255,7 +255,12 @@ public class GUI {
         for (Medie m : arrMedie) {
             try {
                 BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
-                JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+                JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_DEFAULT)));
+                picBtn.setBackground(new Color(32,32,32));
+                picBtn.setFocusable(false);
+                picBtn.setBackground(Color.black);
+                picBtn.setOpaque(true);
+                picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
                 label = new JLabel(m.titel);
                 arrBtn.add(picBtn);
                 arrLabelTitel.add(label);
@@ -265,6 +270,7 @@ public class GUI {
             }
         }
         for (JButton jButton : arrBtn) {
+            jButton.setForeground(new Color(32,32,32));
             panel.add(jButton);
         }
 

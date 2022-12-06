@@ -35,7 +35,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="ScrollBar" />
-                    <option name="lastUsedInstant" value="1669937525" />
+                    <option name="lastUsedInstant" value="1670366835" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="SearchBarTest" />
+                    <option name="lastUsedInstant" value="1670349664" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
