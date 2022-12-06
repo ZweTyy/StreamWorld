@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import  java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +25,7 @@ public class GUI {
     JPanel minListePanel = new JPanel();
 
     JPanel watchPanel = new JPanel();
+    JPanel searchPanel = new JPanel();
 
     JScrollPane activePanel;
 
@@ -32,6 +34,8 @@ public class GUI {
     JButton serierBtn = new JButton("Serier");
     JButton filmBtn = new JButton("Film");
     JButton minListeBtn = new JButton("Min Liste");
+    JTextField searchField = new JTextField();
+    protected JButton searchButton = new JButton("Søg");
     protected JLabel filmLabel;
     protected JLabel serieLabel = new JLabel("Serier!");
     protected JLabel listeLabel = new JLabel("Din Liste er tom");
@@ -51,7 +55,7 @@ public class GUI {
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
     //scroll bar
-    protected JScrollPane forsideScroll, filmScroll,serierScroll, minListeScroll, watchScroll = new JScrollPane();
+    protected JScrollPane forsideScroll, filmScroll,serierScroll, minListeScroll, watchScroll, searchScroll = new JScrollPane();
     protected ArrayList<JScrollPane> arrScroll = new ArrayList<>(Arrays.asList(forsideScroll, filmScroll, serierScroll, minListeScroll));
     protected HashMap<JPanel,JScrollPane> hashScroll = new HashMap<>();
     protected JScrollPane scrollPanel = new JScrollPane();
@@ -62,6 +66,7 @@ public class GUI {
 //    readFile metoden læser alle film og serier fra /forsider/ mappen
       readFile(arrFilm,arrBtnFilm,filmLabel, filmPanel);
       readFile(arrSerier,arrBtnSerier,serieLabel, seriePanel);
+      test(arrFilm);
 
         try {
             BufferedImage image = ImageIO.read(new File("src/other/title.png"));
@@ -88,7 +93,10 @@ public class GUI {
         minListePanel.setBackground(Color.red);
         watchPanel.setBackground(new Color(32,32,32));
         watchPanel.setLayout(new GridLayout(1,5));
+        searchPanel.setBackground(new Color(32,32,32));
+        searchPanel.setLayout(new GridLayout(1,5));
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         mainPanel.setLayout(new BorderLayout());
 
@@ -125,6 +133,15 @@ public class GUI {
             // Her tilføjer vi knapperne til vores frame
             navPanel.add(button);
         }
+        searchButton.setFocusable(false);
+        searchButton.setBounds(0,0,200,25);
+        searchButton.setBackground(Color.black);
+        searchButton.setForeground(Color.white);
+        searchButton.setOpaque(true);
+        searchButton.setBorderPainted(false);
+        searchButton.setFont(new Font("Arial", Font.PLAIN, 25));
+        navPanel.add(searchButton);
+        navPanel.add(searchField);
     }
     public void ActionListener() {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
@@ -150,6 +167,9 @@ public class GUI {
 
             listeLabel.setBounds(100,50,100,50);
             minListePanel.add(listeLabel);
+        });
+        searchButton.addActionListener(e -> {
+            display(scrollPanel);
         });
 
     }
@@ -213,6 +233,22 @@ public class GUI {
             watchPanel.add(infoPanel);
 //            displayPanel(watchPanel);
         });
+    }
+    public void test(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn,JLabel label, JPanel panel) {
+        for (Medie m : arrMedie) {
+            if (arrMedie.contains(searchField.getText())) {
+                try {
+                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+                    label = new JLabel(m.titel);
+                    arrBtn.add(picBtn);
+                    arrLabelTitel.add(label);
+                    btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                } catch (Exception e) {
+                    System.out.println("Der fandtes ingen resultater for " + m.titel);
+                }
+            }
+        }
     }
 
     public void readFile(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn,JLabel label, JPanel panel){
