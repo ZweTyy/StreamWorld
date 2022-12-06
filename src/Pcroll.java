@@ -78,26 +78,35 @@ public class Pcroll {
 //        finally add the scroll to frame's content pane .. which is more proper than adding to frame directly
         myPanel.setLayout( new GridLayout(20,5));
 //        f.setLayout(null);
-        JTextField searchBar = new JTextField("Søg");
+        JTextField searchBar = new JTextField();
+        searchBar.addActionListener(searchBar.getAction());
         JPanel newPanel = new JPanel();
         newPanel.setLayout(new BorderLayout());
         JPanel navPanel = new JPanel();
         navPanel.setBackground(Color.black);
-        navPanel.setLayout(new GridLayout(1,5));
+        navPanel.setLayout(new GridLayout(1,5,20,10));
         navPanel.add(avatar);
         navPanel.add(wall);
         navPanel.add(object0);
         navPanel.add(object1);
-        JLabel l = new JLabel("Søg");
+        JLabel l = new JLabel("Søg",SwingConstants.RIGHT);
         l.setBounds(0,0,20,10);
         l.setForeground(Color.white);
+
         navPanel.add(l);
         navPanel.add(searchBar);
 
-        avatar.addActionListener(e -> {
-            System.out.println(searchBar.getText());
-        });
 
+        JPanel showSearch = new JPanel();
+        newPanel .add(showSearch);
+        showSearch.setVisible(false);
+        object0.addActionListener(e -> {
+            System.out.println(searchBar.getText());
+            JLabel word = new JLabel(searchBar.getText());
+            showSearch.add(word);
+            showSearch.setVisible(true);
+            myPanel.setVisible(false);
+        });
 
         newPanel.add(navPanel, BorderLayout.NORTH);
         newPanel.add(scroll, BorderLayout.CENTER);

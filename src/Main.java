@@ -16,8 +16,8 @@ public class Main {
         arrSerier = n.arrList(m, "serier");
 
 
-//        GUI forside = new GUI(arrFilm, arrSerier);
-        Pcroll p = new Pcroll(arrFilm,arrSerier);
+        GUI forside = new GUI(arrFilm, arrSerier);
+//        Pcroll p = new Pcroll(arrFilm,arrSerier);
 
 //        Scroll scroll = new Scroll();
     }
