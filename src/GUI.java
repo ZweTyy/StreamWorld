@@ -220,6 +220,11 @@ public class GUI {
             try {
                 BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                 JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
+                picBtn.setBackground(new Color(32,32,32));
+                picBtn.setFocusable(false);
+                picBtn.setBackground(Color.black);
+                picBtn.setOpaque(true);
+                picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
                 label = new JLabel(m.titel);
                 arrBtn.add(picBtn);
                 arrLabelTitel.add(label);
@@ -229,6 +234,7 @@ public class GUI {
             }
         }
         for (JButton jButton : arrBtn) {
+            jButton.setForeground(new Color(32,32,32));
             panel.add(jButton);
         }
 
