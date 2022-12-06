@@ -1,4 +1,6 @@
 
+import com.sun.jdi.BooleanType;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -7,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import  java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
@@ -49,6 +53,7 @@ public class GUI {
     protected JScrollPane forsideScroll = new JScrollPane(), filmScroll  = new JScrollPane() ,serierScroll  = new JScrollPane(), minListeScroll = new JScrollPane();
     protected ArrayList<JScrollPane> arrScroll = new ArrayList<>(Arrays.asList(forsideScroll, filmScroll, serierScroll, minListeScroll));
     protected HashMap<JPanel,JScrollPane> hashScroll = new HashMap<>();
+    protected JScrollPane scrollPanel = new JScrollPane();
 
 
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
@@ -81,8 +86,7 @@ public class GUI {
         filmPanel.setBackground(new Color(44,2,100));
         minListePanel.setBackground(Color.red);
         watchPanel.setBackground(new Color(32,32,32));
-        watchPanel.setLayout(null);
-        mainPanel.setLayout(new GridLayout(3,1));
+        mainPanel.setLayout(new BorderLayout());
 
 //        for (JPanel panel: arrPanel) {
 //            panel.setBounds(0,100,1920,1080);
@@ -122,29 +126,36 @@ public class GUI {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
         titleBtn.addActionListener(e -> {
-            displayPanel((forsidePanel));
+//            displayPanel((forsidePanel));
         });
 
         forsideBtn.addActionListener(e -> {
-            displayPanel(forsidePanel);
+//            displayPanel(forsidePanel);
         });
         serierBtn.addActionListener(e -> {
 //            displayPanel(seriePanel);
-            serierScroll.setVisible(true);
             filmScroll.setVisible(false);
-
+            mainPanel.remove(filmScroll);
+            mainPanel.add(serierScroll, BorderLayout.CENTER);
+            serierScroll.setVisible(true);
+            mainPanel.revalidate();
 
         });
         filmBtn.addActionListener(e -> {
-//            displayPanel(filmPanel);
+//            displayPanel(serierScroll);
+
             serierScroll.setVisible(false);
+            mainPanel.remove(serierScroll);
+            mainPanel.add(filmScroll, BorderLayout.CENTER);
             filmScroll.setVisible(true);
+            mainPanel.revalidate();
+
 
 
         });
         minListeBtn.addActionListener(e -> {
 
-            displayPanel(minListePanel);
+//            displayPanel(minListePanel);
 
             listeLabel.setBounds(100,50,100,50);
             minListePanel.add(listeLabel);
@@ -157,33 +168,36 @@ public class GUI {
         frame.setSize(1500,700);
 //        frame.setLayout(null);
         mainPanel.setBackground(new Color(217, 16, 16));
-        mainPanel.add(navPanel);
+        mainPanel.add(navPanel, BorderLayout.NORTH);
 
         //Addere alle panelerne til frame med for each loop
         //navPanel er ikke en del af arrPanel, der den altid skal vises, så vi kalder bare add metoden for sig selv
         filmPanel.setLayout(new GridLayout(20,5));
         seriePanel.setLayout(new GridLayout(20,5));
         serierScroll = new JScrollPane(seriePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        mainPanel.add(serierScroll);
         filmScroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        mainPanel.add(filmScroll);
-
-        serierScroll.setVisible(false);
+        mainPanel.add(serierScroll, BorderLayout.CENTER);
+//        mainPanel.remove(filmScroll);
+//        filmScroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+//        mainPanel.add(filmScroll);
 
         frame.getContentPane().add(mainPanel);
         mainPanel.setVisible(true);
-
         frame.setVisible(true);
 
     }
 
-    public void displayPanel(JPanel currentPanel) {
-
+    public void displayPanel(JScrollPane currentPanel) {
         //Viser kun den panel man vælger via action listener, og sætter de andre paneler visibility til false
-        for(JPanel panel: arrPanel) {
+        for(JScrollPane panel: arrScroll) {
             //Sæt panel til at være usynligt hvis panel ikke er lige med current panel
-            hashScroll.get(panel).setVisible(panel == currentPanel);
+        panel.setVisible(panel == currentPanel);
+        if (currentPanel != panel) mainPanel.remove(panel);
+        else mainPanel.add(currentPanel, BorderLayout.CENTER);
         }
+        currentPanel.setVisible(true);
+
+        mainPanel.revalidate();
     }
 
     public void btnMovie(JButton btn, String title, String aarstal, String rating) {
@@ -200,8 +214,7 @@ public class GUI {
                 watchPanel.add(infoLabel);
                 y+= 100;
             }
-
-            displayPanel(watchPanel);
+//            displayPanel(watchPanel);
             btn.setBounds(0,0,200,300);
             watchPanel.add(btn);
         });
@@ -220,7 +233,6 @@ public class GUI {
                 System.out.println("Kunne ikke loade " + m.titel);
             }
         }
-
         for (JButton jButton : arrBtn) {
             panel.add(jButton);
         }
