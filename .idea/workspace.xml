@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CardLayoutExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <list id="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" name="Changes by annadiers" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +106,7 @@
       <updated>1669896970300</updated>
       <workItem from="1669896972460" duration="320000" />
       <workItem from="1669897519941" duration="10280000" />
-      <workItem from="1669936484782" duration="45898000" />
+      <workItem from="1669936484782" duration="47887000" />
     </task>
     <servers />
   </component>
@@ -131,7 +129,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/GUI.java</url>
-          <line>124</line>
+          <line>128</line>
           <properties class="GUI" method="ActionListener">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
