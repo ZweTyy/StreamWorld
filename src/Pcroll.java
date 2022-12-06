@@ -109,7 +109,7 @@ public class Pcroll {
         });
 
         newPanel.add(navPanel, BorderLayout.NORTH);
-        newPanel.add(scroll, BorderLayout.CENTER);
+        newPanel.add(scroll, BorderLayout.EAST);
         f.getContentPane().add(newPanel);
         f.setSize(1000, 800);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

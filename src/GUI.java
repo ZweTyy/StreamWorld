@@ -46,10 +46,9 @@ public class GUI {
 
 
     //scroll bar
-    protected JScrollPane scroll;
-    JScrollPane scrollPanel;
-
-    HashMap<JPanel,JScrollPane> hashScroll = new HashMap<>();
+    protected JScrollPane forsideScroll = new JScrollPane(), filmScroll  = new JScrollPane() ,serierScroll  = new JScrollPane(), minListeScroll = new JScrollPane();
+    protected ArrayList<JScrollPane> arrScroll = new ArrayList<>(Arrays.asList(forsideScroll, filmScroll, serierScroll, minListeScroll));
+    protected HashMap<JPanel,JScrollPane> hashScroll = new HashMap<>();
 
 
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
@@ -83,7 +82,7 @@ public class GUI {
         minListePanel.setBackground(Color.red);
         watchPanel.setBackground(new Color(32,32,32));
         watchPanel.setLayout(null);
-        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setLayout(new GridLayout(3,1));
 
 //        for (JPanel panel: arrPanel) {
 //            panel.setBounds(0,100,1920,1080);
@@ -131,14 +130,15 @@ public class GUI {
         });
         serierBtn.addActionListener(e -> {
 //            displayPanel(seriePanel);
-            hashScroll.get(filmPanel).setVisible(false);
-            hashScroll.get(seriePanel).setVisible(true);
+            serierScroll.setVisible(true);
+            filmScroll.setVisible(false);
 
 
         });
         filmBtn.addActionListener(e -> {
-//            displayPanel(filmPanel)
-            hashScroll.get(filmPanel).setVisible(true);
+//            displayPanel(filmPanel);
+            serierScroll.setVisible(false);
+            filmScroll.setVisible(true);
 
 
         });
@@ -157,22 +157,19 @@ public class GUI {
         frame.setSize(1500,700);
 //        frame.setLayout(null);
         mainPanel.setBackground(new Color(217, 16, 16));
-        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(navPanel);
 
         //Addere alle panelerne til frame med for each loop
-        for (JPanel panel: arrPanel) {
-//            Adder scrollbar på hvert panel
-        JScrollPane scrollPanel = new JScrollPane(panel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        hashScroll.put(panel,scrollPanel);
-        mainPanel.add(scrollPanel, BorderLayout.CENTER);
-        }
         //navPanel er ikke en del af arrPanel, der den altid skal vises, så vi kalder bare add metoden for sig selv
         filmPanel.setLayout(new GridLayout(20,5));
-//        scrollPanel = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        hashScroll.get(seriePanel).setVisible(true);
-//        hashScroll.put(filmPanel,scrollPanel);
-        mainPanel.add(navPanel,BorderLayout.NORTH);
-        mainPanel.add(hashScroll.get(filmPanel),BorderLayout.CENTER);
+        seriePanel.setLayout(new GridLayout(20,5));
+        serierScroll = new JScrollPane(seriePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        mainPanel.add(serierScroll);
+        filmScroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        mainPanel.add(filmScroll);
+
+        serierScroll.setVisible(false);
+
         frame.getContentPane().add(mainPanel);
         mainPanel.setVisible(true);
 
