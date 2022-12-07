@@ -22,6 +22,7 @@ public class GUI {
     JPanel searchPanel = new JPanel();
 
     JScrollPane activePanel;
+    JButton currentMedia;
 
     JButton titleBtn;
     JButton forsideBtn = new JButton("Forside");
@@ -48,8 +49,12 @@ public class GUI {
     //scroll bar
     protected JScrollPane forsideScroll, filmScroll,serierScroll, minListeScroll, watchScroll, searchScroll = new JScrollPane();
 
+    protected ArrayList<Medie> arrFilm = new ArrayList<>();
+
     protected ArrayList<Medie> arrAlle = new ArrayList<>();
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
+
+        this.arrFilm = arrFilm;
 
         arrAlle.addAll(arrFilm);
         arrAlle.addAll(arrSerier);
@@ -182,17 +187,18 @@ public class GUI {
         activePanel = currentPanel;
     }
 
-    public void btnMovie(JButton btn, String title, String aarstal, String rating) {
+    public void btnMovie(JButton btn, String title, String aarstal, String rating, JButton btnWatch) {
 
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
         btn.addActionListener(e -> {
+            JButton bb;
             watchPanel.removeAll();
             display(watchScroll);
             JPanel infoPanel = new JPanel();
             infoPanel.setLayout( new GridLayout(5,1));
             infoPanel.setBackground(new Color(32,32,32));
-            btn.setBackground(new Color(32,32,32));
-            watchPanel.add(btn);
+            btnWatch.setBackground(new Color(32,32,32));
+            watchPanel.add(btnWatch);
             int y = 10;
             for (String info : arrInfo) {
                 JLabel infoLabel = new JLabel(info);
@@ -213,25 +219,33 @@ public class GUI {
             try {
                 BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                 JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_DEFAULT)));
+                JButton picBtnWatch = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_DEFAULT)));
                 picBtn.setBackground(new Color(32,32,32));
                 picBtn.setFocusable(false);
                 picBtn.setBackground(Color.black);
                 picBtn.setOpaque(true);
                 picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                picBtnWatch.setBackground(new Color(32,32,32));
+                picBtnWatch.setFocusable(false);
+                picBtnWatch.setBackground(Color.black);
+                picBtnWatch.setOpaque(true);
+                picBtnWatch.setBorderPainted(false);
                 label = new JLabel(m.titel);
                 arrBtn.add(picBtn);
                 arrLabelTitel.add(label);
-                btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                picBtn.setForeground(new Color(32,32,32));
+                panel.add(picBtn);
+                btnMovie(picBtn, m.titel, m.aarstal, m.rating,picBtnWatch);
             } catch (FileNotFoundException fnfe) {
                 System.out.println("Der fandtes ingen resultater for " + m.titel);
             } catch (Exception e) {
                 System.out.println("Noget gik galt");
             }
         }
-        for (JButton jButton : arrBtn) {
-            jButton.setForeground(new Color(32,32,32));
-            panel.add(jButton);
-        }
+//        for (JButton jButton : arrBtn) {
+//            jButton.setForeground(new Color(32,32,32));
+//            panel.add(jButton);
+//        }
 
     }
     public void search(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JLabel label, JPanel panel) {
@@ -244,15 +258,21 @@ public class GUI {
                 try {
                     BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                     JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_SMOOTH)));
+                    JButton picBtnWatch = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_DEFAULT)));
                     picBtn.setBackground(new Color(32,32,32));
                     picBtn.setFocusable(false);
                     picBtn.setBackground(Color.black);
                     picBtn.setOpaque(true);
                     picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                    picBtnWatch.setBackground(new Color(32,32,32));
+                    picBtnWatch.setFocusable(false);
+                    picBtnWatch.setBackground(Color.black);
+                    picBtnWatch.setOpaque(true);
+                    picBtnWatch.setBorderPainted(false);
                     label = new JLabel(m.titel);
                     arrBtn.add(picBtn);
                     arrLabelTitel.add(label);
-                    btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                    btnMovie(picBtn, m.titel, m.aarstal, m.rating,picBtnWatch);
                     totalMedie++;
                 } catch (FileNotFoundException fnfe) {
                     System.out.println("Der fandtes ingen resultater for " + m.titel);
