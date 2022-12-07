@@ -7,6 +7,7 @@
     <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <list id="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" name="Changes by annadiers" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +120,7 @@
       <workItem from="1669897519941" duration="10280000" />
       <workItem from="1669936484782" duration="47887000" />
       <workItem from="1670368607463" duration="6522000" />
-      <workItem from="1670417366250" duration="1997000" />
+      <workItem from="1670417366250" duration="26114000" />
     </task>
     <servers />
   </component>
@@ -142,7 +143,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/GUI.java</url>
-          <line>118</line>
+          <line>123</line>
           <properties class="GUI">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
