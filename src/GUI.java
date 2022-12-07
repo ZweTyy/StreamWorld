@@ -1,17 +1,11 @@
-
-import com.sun.jdi.BooleanType;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import  java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
@@ -41,32 +35,27 @@ public class GUI {
     protected JLabel listeLabel = new JLabel("Din Liste er tom");
 
     //    Array list a film som knapper
-    protected ArrayList<JButton> arrBtnFilm = new ArrayList<>();
 
-    protected ArrayList<JButton> arrBtnSerier = new ArrayList<>();
+    protected ArrayList<JButton> arrBtnSerier = new ArrayList<>(), arrBtnFilm = new ArrayList<>(), arrBtnAlle = new ArrayList<>();
+
 
     //Array liste af film titler
     protected ArrayList<JLabel> arrLabelTitel= new ArrayList<>();
-
-    //Arrayliste af JPaneler undtagen navPanel. Brug til display metode.
-    protected ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel));
 
     //Array liste af JButton knapper
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
 
     //scroll bar
     protected JScrollPane forsideScroll, filmScroll,serierScroll, minListeScroll, watchScroll, searchScroll = new JScrollPane();
-    protected ArrayList<JScrollPane> arrScroll = new ArrayList<>(Arrays.asList(forsideScroll, filmScroll, serierScroll, minListeScroll));
-    protected HashMap<JPanel,JScrollPane> hashScroll = new HashMap<>();
-    protected JScrollPane scrollPanel = new JScrollPane();
 
-
+    protected ArrayList<Medie> arrAlle = new ArrayList<>();
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
 
+        arrAlle.addAll(arrFilm);
+        arrAlle.addAll(arrSerier);
 //    readFile metoden læser alle film og serier fra /forsider/ mappen
       readFile(arrFilm,arrBtnFilm,filmLabel, filmPanel);
       readFile(arrSerier,arrBtnSerier,serieLabel, seriePanel);
-      test(arrFilm);
 
         try {
             BufferedImage image = ImageIO.read(new File("src/other/title.png"));
@@ -94,15 +83,12 @@ public class GUI {
         watchPanel.setBackground(new Color(32,32,32));
         watchPanel.setLayout(new GridLayout(1,5));
         searchPanel.setBackground(new Color(32,32,32));
-        searchPanel.setLayout(new GridLayout(1,5));
+        searchPanel.setLayout(new GridLayout(20,5));
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         mainPanel.setLayout(new BorderLayout());
 
-//        for (JPanel panel: arrPanel) {
-//            panel.setBounds(0,100,1920,1080);
-//        }
         navPanel.setBounds(0,0,1920,100);
         navPanel.setVisible(true);
     }
@@ -150,26 +136,15 @@ public class GUI {
 //            displayPanel((forsidePanel));
         });
 
-        forsideBtn.addActionListener(e -> {
-            display(forsideScroll);
-        });
-        serierBtn.addActionListener(e -> {
-            display(serierScroll);
-
-        });
-        filmBtn.addActionListener(e -> {
-            display(filmScroll);
-
-        });
+        forsideBtn.addActionListener(e -> display(forsideScroll));
+        serierBtn.addActionListener(e -> display(serierScroll));
+        filmBtn.addActionListener(e -> display(filmScroll));
         minListeBtn.addActionListener(e -> {
-
-            display(minListeScroll);
-
-            listeLabel.setBounds(100,50,100,50);
-            minListePanel.add(listeLabel);
         });
         searchButton.addActionListener(e -> {
-            display(scrollPanel);
+            display(searchScroll);
+            searchPanel.removeAll();
+            search(arrAlle,arrBtnAlle,filmLabel, searchPanel);
         });
 
     }
@@ -189,9 +164,7 @@ public class GUI {
         filmScroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         mainPanel.add(filmScroll, BorderLayout.CENTER);
         activePanel = filmScroll;
-//        mainPanel.remove(filmScroll);
-//        filmScroll = new JScrollPane(filmPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-//        mainPanel.add(filmScroll);
+
 
         frame.getContentPane().add(mainPanel);
         mainPanel.setVisible(true);
@@ -234,22 +207,7 @@ public class GUI {
 //            displayPanel(watchPanel);
         });
     }
-    public void test(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn,JLabel label, JPanel panel) {
-        for (Medie m : arrMedie) {
-            if (arrMedie.contains(searchField.getText())) {
-                try {
-                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
-                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(200,300,Image.SCALE_SMOOTH)));
-                    label = new JLabel(m.titel);
-                    arrBtn.add(picBtn);
-                    arrLabelTitel.add(label);
-                    btnMovie(picBtn, m.titel, m.aarstal, m.rating);
-                } catch (Exception e) {
-                    System.out.println("Der fandtes ingen resultater for " + m.titel);
-                }
-            }
-        }
-    }
+
 
     public void readFile(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn,JLabel label, JPanel panel){
         for (Medie m : arrMedie) {
@@ -265,8 +223,10 @@ public class GUI {
                 arrBtn.add(picBtn);
                 arrLabelTitel.add(label);
                 btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+            } catch (FileNotFoundException fnfe) {
+                System.out.println("Der fandtes ingen resultater for " + m.titel);
             } catch (Exception e) {
-                System.out.println("Kunne ikke loade " + m.titel);
+                System.out.println("Noget gik galt");
             }
         }
         for (JButton jButton : arrBtn) {
@@ -274,6 +234,36 @@ public class GUI {
             panel.add(jButton);
         }
 
+    }
+    public void search(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JLabel label, JPanel panel) {
+//        Sætter arrayliste til at være tomt, så medier ikke kan duplikieres hvis man søger igen
+        arrBtn.clear();
+        for (Medie m : arrMedie) {
+            //Viser kun film og serier titel til contains søge felt
+            if (m.titel.toLowerCase().contains(searchField.getText().toLowerCase())) {
+                try {
+                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(300,400,Image.SCALE_SMOOTH)));
+                    picBtn.setBackground(new Color(32,32,32));
+                    picBtn.setFocusable(false);
+                    picBtn.setBackground(Color.black);
+                    picBtn.setOpaque(true);
+                    picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                    label = new JLabel(m.titel);
+                    arrBtn.add(picBtn);
+                    arrLabelTitel.add(label);
+                    btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                } catch (FileNotFoundException fnfe) {
+                    System.out.println("Der fandtes ingen resultater for " + m.titel);
+                } catch (Exception e) {
+                    System.out.println("Noget gik galt");
+                }
+            }
+        }
+        for (JButton jButton : arrBtn) {
+            jButton.setForeground(new Color(32,32,32));
+            panel.add(jButton);
+        }
     }
 
 }
