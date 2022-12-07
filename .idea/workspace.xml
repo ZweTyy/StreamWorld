@@ -33,16 +33,20 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="Scroll+Search" />
+                    <option name="lastUsedInstant" value="1670373061" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1670372831" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="ScrollBar" />
                     <option name="lastUsedInstant" value="1670366835" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="SearchBarTest" />
                     <option name="lastUsedInstant" value="1670349664" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1669937524" />
                   </RecentBranch>
                 </list>
               </option>
@@ -114,7 +118,7 @@
       <workItem from="1669896972460" duration="320000" />
       <workItem from="1669897519941" duration="10280000" />
       <workItem from="1669936484782" duration="47887000" />
-      <workItem from="1670368607463" duration="4048000" />
+      <workItem from="1670368607463" duration="6522000" />
     </task>
     <servers />
   </component>

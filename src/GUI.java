@@ -83,7 +83,7 @@ public class GUI {
         watchPanel.setBackground(new Color(32,32,32));
         watchPanel.setLayout(new GridLayout(1,5));
         searchPanel.setBackground(new Color(32,32,32));
-        searchPanel.setLayout(new GridLayout(20,5));
+        searchPanel.setLayout(new FlowLayout());
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -186,13 +186,12 @@ public class GUI {
 
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
         btn.addActionListener(e -> {
-            display(watchScroll);
             watchPanel.removeAll();
+            display(watchScroll);
             JPanel infoPanel = new JPanel();
             infoPanel.setLayout( new GridLayout(5,1));
             infoPanel.setBackground(new Color(32,32,32));
             btn.setBackground(new Color(32,32,32));
-            btn.setBounds(0,0,200,300);
             watchPanel.add(btn);
             int y = 10;
             for (String info : arrInfo) {
@@ -204,7 +203,7 @@ public class GUI {
                 y+= 100;
             }
             watchPanel.add(infoPanel);
-//            displayPanel(watchPanel);
+
         });
     }
 
@@ -238,6 +237,7 @@ public class GUI {
     public void search(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JLabel label, JPanel panel) {
 //        Sætter arrayliste til at være tomt, så medier ikke kan duplikieres hvis man søger igen
         arrBtn.clear();
+        int totalMedie = 0;
         for (Medie m : arrMedie) {
             //Viser kun film og serier titel til contains søge felt
             if (m.titel.toLowerCase().contains(searchField.getText().toLowerCase())) {
@@ -253,12 +253,14 @@ public class GUI {
                     arrBtn.add(picBtn);
                     arrLabelTitel.add(label);
                     btnMovie(picBtn, m.titel, m.aarstal, m.rating);
+                    totalMedie++;
                 } catch (FileNotFoundException fnfe) {
                     System.out.println("Der fandtes ingen resultater for " + m.titel);
                 } catch (Exception e) {
                     System.out.println("Noget gik galt");
                 }
             }
+            if (totalMedie >= 5) searchPanel.setLayout(new GridLayout(20,5));
         }
         for (JButton jButton : arrBtn) {
             jButton.setForeground(new Color(32,32,32));
