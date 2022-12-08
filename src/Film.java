@@ -3,8 +3,8 @@ import java.io.*;
 public class Film extends Medie{
 
 
-    Film(String titel, String aarstal, String rating){
-        super(titel, aarstal, rating);
+    Film(String titel, String aarstal, String rating, String genre, boolean minliste){
+        super(titel, aarstal, rating, genre, minliste);
     }
 
 //    public static void sort(){

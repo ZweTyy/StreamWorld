@@ -7,7 +7,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import  java.util.*;
+import java.util.*;
+import java.util.List;
+
 
 public class GUI {
     // Opretter vores frame, panel og label instanser + alle knapper
@@ -20,16 +22,21 @@ public class GUI {
     JPanel minListePanel = new JPanel();
     JPanel watchPanel = new JPanel();
     JPanel searchPanel = new JPanel();
+    JPanel filterPanel = new JPanel();
 //  Arraliste af paneler. Det skal være i den samme rækkefølge som arrScrollPane
 //  navpanel er ikke inkluderet, der den altid skal vises.
     ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel,searchPanel,watchPanel));
 
     //scroll bar paneler
-    protected JScrollPane forsideScroll, filmScroll ,serierScroll , minListeScroll , watchScroll , searchScroll ;
+    protected JScrollPane forsideScroll, filmScroll ,serierScroll , minListeScroll , watchScroll , searchScroll, filterScroll ;
 
     //Array liste af JScrollPane
     //Skal være samme rækkefølge som arrPanel
     ArrayList<JScrollPane> arrScrollPane = new ArrayList<>(Arrays.asList(forsideScroll,serierScroll,filmScroll, minListeScroll, searchScroll, watchScroll));
+    // Array af alle genre
+    String[] genre = {"Vælg", "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary"
+                        , "Drama", "Film-Noir", "Family", "Fantasy", "History", "Horror", "Music",
+                        "Musical", "Mystery", "Romance", "Sci-fi", "Sport", "Talk-show", "Thriller", "War", "Western"};
 
     HashMap<JScrollPane,JPanel> hashPanelScroll = new HashMap<>();
     protected JScrollPane activePanel; // Nuværende scroll pane som bliver vist. Bliver brugt i display metoden
@@ -40,6 +47,7 @@ public class GUI {
     protected JButton serierBtn = new JButton("Serier");
     protected JButton filmBtn = new JButton("Film");
     protected JTextField searchField = new JTextField(); //Søge felt
+    protected JComboBox filterGenre = new JComboBox(genre);
     protected JButton minListeBtn = new JButton("Min Liste");
     //Array liste af JButton knapper fra navigations
     protected  ArrayList<JButton> arrButtons = new ArrayList<>(Arrays.asList(forsideBtn,serierBtn,filmBtn,minListeBtn));
@@ -47,10 +55,11 @@ public class GUI {
     //    Array list af medie(forsider/plakater) som knapper
     protected ArrayList<JButton> arrBtnSerier = new ArrayList<>(), arrBtnFilm = new ArrayList<>(), arrBtnAlle = new ArrayList<>();
 
-
-
     //Array liste af både film og serier objekter
     protected ArrayList<Medie> arrAlle = new ArrayList<>();
+
+    protected JPanel infoPanel = new JPanel(); //Den skal indeholde info om mediet
+
 
     //Konstruktør som kører når vi kalder GUI() fra Main
     public GUI (ArrayList<Medie> arrFilm,ArrayList<Medie> arrSerier ){
@@ -104,6 +113,7 @@ public class GUI {
         minListeScroll = new JScrollPane(minListePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        filterScroll = new JScrollPane(filterScroll, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     }
     public void navButtons() {
         try {
@@ -144,11 +154,12 @@ public class GUI {
 //        Sætter søge felt størrelse til 10 og tilføjer den til vores nav panel
         searchField.setColumns(10);
         navPanel.add(searchField);
+
+        navPanel.add(filterGenre);
     }
     public void ActionListener() {
         //Kører hver gang der ændres noget på søgefeltet
         searchField.getDocument().addDocumentListener(new DocumentListener() {
-
             @Override
             public void insertUpdate(DocumentEvent de) { //Hver gang brugeren tilføjer et tegn kører den
                 display(searchScroll);
@@ -160,7 +171,6 @@ public class GUI {
                 searchPanel.removeAll();
                 search(arrAlle,arrBtnAlle, searchPanel);
             }
-
             @Override
             public void changedUpdate(DocumentEvent e) {
             }
@@ -173,7 +183,15 @@ public class GUI {
         serierBtn.addActionListener(e -> display(serierScroll));
         filmBtn.addActionListener(e -> display(filmScroll));
         minListeBtn.addActionListener(e -> {display(minListeScroll);});
-    }
+        filterGenre.addActionListener(e -> {
+            filter(arrAlle,arrBtnAlle,watchPanel);
+        });
+        minListeBtn.addActionListener(e -> {
+            display(minListeScroll);
+            minListeFunktion(arrAlle,arrBtnAlle,minListePanel);
+        });
+
+        }
 
     public void frameMethods() {
 
@@ -203,7 +221,7 @@ public class GUI {
     }
 
     //Den her metode søger for at hvis man trykker på et medie, så kan man se dens infp
-    public void showMedia(JButton btn, String title, String aarstal, String rating, JButton btnWatch) {
+    public void showMedia(JButton btn, String title, String aarstal, String rating, String genre,JButton btnWatch, boolean minListe, JButton tilfoejBtn, JButton fjernBtn) {
 
         //Vi har 2 JButton, den ene er fra selve de andre paneler, hvor den anden er en hel kopi (btnWatch)
         //Vi skal have 2 JButton, der en JButton kun kan være på et sted, så når vi trykker på
@@ -212,11 +230,12 @@ public class GUI {
 
         //Sætter info a mediet som et array, så vi kan lave et for each loop
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
+        Favoritliste favor = new Favoritliste();
         btn.addActionListener(e -> {
             watchPanel.removeAll();
+            infoPanel.removeAll();
             display(watchScroll);
-            JPanel infoPanel = new JPanel(); //Den skal indeholde info om mediet
-            infoPanel.setLayout( new GridLayout(4,1));
+            infoPanel.setLayout( new GridLayout(5,1));
             infoPanel.setBackground(new Color(32,32,32));
             btnWatch.setBackground(new Color(32,32,32));
             watchPanel.add(btnWatch); //Indsætter kopi af medie knappen
@@ -226,9 +245,34 @@ public class GUI {
                 infoLabel.setFont(new Font("Serif", Font.PLAIN, 28));
                 infoPanel.add(infoLabel);
             }
-            watchPanel.add(infoPanel); //Sætter info panel ind i watch panel
+            if(!minListe) {
+                infoPanel.add(tilfoejBtn);
+            } else {
+                infoPanel.add(fjernBtn);
+            }
+            watchPanel.add(infoPanel);
 
         });
+
+        tilfoejBtn.addActionListener(e -> {
+            tilfoejBtn.setVisible(false);
+            infoPanel.remove(tilfoejBtn);
+            fjernBtn.setVisible(true);
+            infoPanel.add(fjernBtn);
+            infoPanel.revalidate();
+            favor.tilføj_medie(title);
+
+        });
+
+        fjernBtn.addActionListener(e ->{
+            fjernBtn.setVisible(false);
+            infoPanel.remove(fjernBtn);
+            tilfoejBtn.setVisible(true);
+            infoPanel.add(tilfoejBtn);
+            infoPanel.revalidate();
+            favor.fjern_medie(title);
+        });
+
     }
     public void readFile(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel){
         for (Medie m : arrMedie) {
@@ -237,6 +281,8 @@ public class GUI {
                 JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_DEFAULT))); //Sætter billedet om en baggrund på button
                 JButton picBtnTempo = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_DEFAULT))); //Kopi den forrige linje
                 ArrayList<JButton> arrPicBtn = new ArrayList<>(Arrays.asList(picBtn,picBtnTempo)); //Sætter den begge i en array liste og kalder for each, siden de begge skal køre samme metode
+                JButton tilfoejBtn = new JButton("Tilføj til min liste");
+                JButton fjernBtn = new JButton("Fjern fra min liste");
                 for (JButton btn : arrPicBtn){
                     btn.setBackground(new Color(32,32,32));
                     btn.setFocusable(false);
@@ -252,14 +298,13 @@ public class GUI {
                     });
                 }
                 panel.add(picBtn); //'tilføje knappen til den valgte panel
-                showMedia(picBtn, m.titel, m.aarstal, m.rating,picBtnTempo); //Kører showMedia metoden
+                showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre, picBtnTempo, m.minListe, tilfoejBtn,fjernBtn); //Kører showMedia metoden
             } catch (FileNotFoundException fnfe) {
                 System.out.println("Der fandtes ingen resultater for " + m.titel);
             } catch (Exception e) {
                 System.out.println("Noget gik galt: " + e.getMessage());
             }
         }
-
     }
     public void search(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
         display(searchScroll);
@@ -272,6 +317,8 @@ public class GUI {
                 display(forsideScroll);
             }
             else if (m.titel.toLowerCase().contains(searchField.getText().toLowerCase()) ) { //Hvis en eller flere medie titler passer til søge feltet
+                JButton tilfoejBtn = new JButton("Tilføj til min liste");
+                JButton fjernBtn = new JButton("Fjern fra min liste");
                 try { //samme kode fra readFile
                     BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
                     JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
@@ -282,7 +329,7 @@ public class GUI {
                     picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
                     arrBtn.add(picBtn);
                     panel.add(picBtn);
-                    showMedia(picBtn, m.titel, m.aarstal, m.rating,picBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+                    showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre, picBtn, m.minListe, tilfoejBtn,fjernBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
                     totalMedie++;
                 } catch (FileNotFoundException fnfe) {
                     System.out.println("Der fandtes ingen resultater for " + m.titel);
@@ -316,5 +363,109 @@ public class GUI {
         }
         searchPanel.revalidate(); //Opdatere panelet 
 
+    }
+    public void filter(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
+        int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning
+        for (Medie m : arrMedie) {
+            if (filterGenre.getSelectedItem().equals(m.genre)) {
+                JButton tilfoejBtn = new JButton("Tilføj til min liste");
+                JButton fjernBtn = new JButton("Fjern fra min liste");
+                try { //samme kode fra readFile
+                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
+                    picBtn.setBackground(new Color(32,32,32));
+                    picBtn.setFocusable(false);
+                    picBtn.setBackground(Color.black);
+                    picBtn.setOpaque(true);
+                    picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                    arrBtn.add(picBtn);
+                    panel.add(picBtn);
+                    showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre,picBtn, m.minListe, tilfoejBtn,fjernBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+                    totalMedie++;
+                } catch (FileNotFoundException fnfe) {
+                    System.out.println("Der fandtes ingen resultater for " + m.titel);
+                } catch (Exception e) {
+                    System.out.println("Noget gik galt");
+                }
+            }
+        }
+        if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
+            filterPanel.setLayout(new FlowLayout());
+            JLabel txt = new JLabel("Kunne ikke finde noget fra din søgning");
+            txt.setBounds(0,0,200,25);
+            txt.setBackground(new Color (32,32,32));
+            txt.setForeground(Color.white);
+            txt.setOpaque(true);
+            txt.setFont(new Font("Sans", Font.PLAIN, 45));
+            filterPanel.add(txt);
+        }
+        else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
+            for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
+                JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
+                blankBtn.setBackground(new Color(32,32,32));
+                blankBtn.setOpaque(true);
+                blankBtn.setBorderPainted(false);
+                filterPanel.add(blankBtn);
+            }
+            filterPanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
+        }
+        else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
+            filterPanel.setLayout(new GridLayout(totalMedie/5, 5));
+        }
+        filterPanel.revalidate(); //Opdatere panelet
+    }
+
+    public void minListeFunktion(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
+        int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning
+        Favoritliste favor = new Favoritliste();
+        minListePanel.removeAll();
+        for (Medie m : arrMedie) {
+            if (favor.indlaes_medier().contains(m.titel)) {
+                JButton tilfoejBtn = new JButton("Tilføj til min liste");
+                JButton fjernBtn = new JButton("Fjern fra min liste");
+                try { //samme kode fra readFile
+                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
+                    picBtn.setBackground(new Color(32,32,32));
+                    picBtn.setFocusable(false);
+                    picBtn.setBackground(Color.black);
+                    picBtn.setOpaque(true);
+                    picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                    arrBtn.add(picBtn);
+                    panel.add(picBtn);
+                    m.minListe = true;
+                    showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre,picBtn, m.minListe, tilfoejBtn,fjernBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+                    totalMedie++;
+                } catch (FileNotFoundException fnfe) {
+                    System.out.println("Der fandtes ingen resultater for " + m.titel);
+                } catch (Exception e) {
+                    System.out.println("Noget gik galt");
+                }
+            }
+        }
+        if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
+            minListePanel.setLayout(new FlowLayout());
+            JLabel txt = new JLabel("Din liste er tom");
+            txt.setBounds(0,0,200,25);
+            txt.setBackground(new Color (32,32,32));
+            txt.setForeground(Color.white);
+            txt.setOpaque(true);
+            txt.setFont(new Font("Sans", Font.PLAIN, 45));
+            minListePanel.add(txt);
+        }
+        else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
+            for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
+                JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
+                blankBtn.setBackground(new Color(32,32,32));
+                blankBtn.setOpaque(true);
+                blankBtn.setBorderPainted(false);
+                minListePanel.add(blankBtn);
+            }
+            minListePanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
+        }
+        else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
+            minListePanel.setLayout(new GridLayout(totalMedie/5, 5));
+        }
+        minListePanel.revalidate(); //Opdatere panelet
     }
 }
