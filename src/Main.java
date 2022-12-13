@@ -13,7 +13,6 @@ public class Main {
 
         Medie m = new Film("string","string","string", "string", false);
         Medie n = new Serier("string","string","string", "string", false);
-        m.test_sortering("src/txt/film.txt");
         arrFilm = m.arrList(m, "film");
         arrSerier = n.arrList(m, "serier");
 

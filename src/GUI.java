@@ -113,7 +113,7 @@ public class GUI {
         minListeScroll = new JScrollPane(minListePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        filterScroll = new JScrollPane(filterScroll, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        filterScroll = new JScrollPane(filterPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     }
     public void navButtons() {
         try {
@@ -178,19 +178,30 @@ public class GUI {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
         //Se display metoden
-        logoBtn.addActionListener(e -> display(forsideScroll));
-        forsideBtn.addActionListener(e -> display(forsideScroll));
-        serierBtn.addActionListener(e -> display(serierScroll));
-        filmBtn.addActionListener(e -> display(filmScroll));
-        minListeBtn.addActionListener(e -> {display(minListeScroll);});
+        logoBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(forsideScroll);
+        });
+        forsideBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(forsideScroll);
+        });
+        serierBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(serierScroll);
+        });
+        filmBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(filmScroll);
+        });
         filterGenre.addActionListener(e -> {
-            filter(arrAlle,arrBtnAlle,watchPanel);
+            filter(arrAlle,arrBtnAlle,filterPanel);
         });
         minListeBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
             display(minListeScroll);
             minListeFunktion(arrAlle,arrBtnAlle,minListePanel);
         });
-
         }
 
     public void frameMethods() {
@@ -365,9 +376,11 @@ public class GUI {
 
     }
     public void filter(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
+        display(filterScroll);
+        filterPanel.removeAll();
         int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning
         for (Medie m : arrMedie) {
-            if (filterGenre.getSelectedItem().equals(m.genre)) {
+            if (m.genre.contains(filterGenre.getSelectedItem().toString())) {
                 JButton tilfoejBtn = new JButton("Tilføj til min liste");
                 JButton fjernBtn = new JButton("Fjern fra min liste");
                 try { //samme kode fra readFile
@@ -390,14 +403,7 @@ public class GUI {
             }
         }
         if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-            filterPanel.setLayout(new FlowLayout());
-            JLabel txt = new JLabel("Kunne ikke finde noget fra din søgning");
-            txt.setBounds(0,0,200,25);
-            txt.setBackground(new Color (32,32,32));
-            txt.setForeground(Color.white);
-            txt.setOpaque(true);
-            txt.setFont(new Font("Sans", Font.PLAIN, 45));
-            filterPanel.add(txt);
+            display(forsideScroll);
         }
         else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
             for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0

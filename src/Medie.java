@@ -13,6 +13,7 @@ public abstract class Medie {
         this.aarstal = aarstal;
         this.titel = titel;
         this.rating = rating;
+        this.genre = genre;
         this.minliste = minliste;
 
     }
@@ -56,7 +57,7 @@ public abstract class Medie {
 
 
 
-    public HashMap<String,List<String>> test_sortering(String filename){
+    /* public HashMap<String,List<String>> test_sortering(String filename){
         ArrayList<String> genre = new ArrayList<>(Arrays.asList("Crime","War","Drama","Family","Romance","Sci-fi","Biography","Musical","Adventure","Action","Thriller","Mystery","History","Fantasy","Comedy","Film-Noir","Horror","Western","Sport","Music"));
         HashMap<String,List<String>> genre_map = new HashMap<>();
         ArrayList<String> specifik_genre_liste;
@@ -100,7 +101,7 @@ public abstract class Medie {
         }
 
 
-    }
+    } */
 
     public static ArrayList<String> vis_medie(String filename){
         ArrayList<String> medie_navn = new ArrayList<>();
