@@ -5,21 +5,222 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Favoriteliste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/txt/favoritliste.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CardLayoutExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Favoriteliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Favoriteliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Serier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/12 Angry Men.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/2001 A Space Odyssey.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/A Clockwork Orange.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/A Philadelphia Story.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/A Place In The Sun.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/A Streetcar Named Desire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Alfred Hitchcock Presents.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/All In The Family.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/All Quiet On The Western Front.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Ally McBeal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Amadeus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/American Graffiti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/An American In Paris.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Angel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Annie Hall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Apocalypse Now.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Arrested Development.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Band Of Brothers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Banshee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Batman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Battlestar Galactica.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Ben Hur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Better Call Saul.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Big Little Lies.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Billions.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Boardwalk Empire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Bonny And Clyde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Braveheart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Breaking Bad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Buffy The Vampire Slayer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Butch Cassidy And The Sundance Kid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Californication.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Casablanca.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Cheers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Chinatown.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Citizen Kane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/City Lights.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Close Encounters.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Crisis In Six Scenes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Curb Your Enthusiasm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Da Ali G Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Damages.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Dances With Wolves.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Daredevil.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Deadwood.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Dekalog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Dexter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Doctor Thorne.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Doctor Zhivago.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Double Indemnity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Dr. Strangelove Or How I Learned To Stop Worrying And Love The Bomb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/ET.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Entourage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Family Ties.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Fargo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Fear The Walking Dead.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Firefly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Flying Blind.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Forrest Gump.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Fraiser.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Freaks And Geeks.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/From Here To Eternity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/GLOW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Game Of Thrones.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Giant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Girls.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Gone With The Wind.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Good Will Hunting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Goodfellas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Grapes Of Wrath.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/High Noon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Homeland.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Horace and Pete's.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/House Of Cards.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/House.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/I Claudius.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/I Love Lucy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/It Happened One Night.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/It's A Wonderful Life.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/It's Garry Shandling's Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Jaws.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Jessica Jones.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Jurassic Park.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Justified.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Lawrence Of Arabia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Lonesome Dove.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Lord Of The Rings - The Return Of The King.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Lost.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Louie.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Lucky Louie.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Luke Cage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Mad Men.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Married With Children.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Midnight Cowboy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Mr Show With Bob And David.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Mr Smith Goes To Washington.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Mutiny On The Bounty.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/My Fair Lady.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Nashville.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Network.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Night Court.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/North By Northwest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Northern Exposure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/On The Air.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/On The Waterfront.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/One Flew Over The Cuckoo's Nest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Patton.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Person Of Interest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Planet Earth.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Platoon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Pride And Prejudice.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Psycho.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Pulp Fiction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Raging Bull.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Raiders Of The Lost Ark.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Rain Man.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Ray Donovan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Rear Window.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Rebel Without A Cause.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Revenge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Rocky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Rome.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Saving Private Ryan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Scener ur ett äktenskap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Schindler's List.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Seinfeld.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Sex &amp; The City.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Shameless.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Shane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Show Me A Hero.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Singin' In The Rain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Slings And Arrows.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Smallville.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Some Like It Hot.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Sons Of Anarchy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/South Park.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Spaced.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Spartacus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Stagecoach.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Star Trek.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Star Wars.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Stranger Things.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Sunset Boulevard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Taxi Driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Terms of Endearment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The African Queen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Americans.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Apartment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Best Years Of Our Lives.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Bridge Over The River Kwai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Civil War.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Deer Hunter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Defenders.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Exorcist.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The French Connection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Godfather part II.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Good, The Bad And The Ugly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Graduate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Great Dictator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Green Mile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Honeymooners.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Larry Sanders Show.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Maltese Falcon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Man In The High Castle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Marvelous Mrs Maisel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Pianist.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Punisher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Searchers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Shawshank Redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Shield.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Silence Of The Lambs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Simpsons.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Sopranos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Sound Of Music.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Strain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Third Man.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Treasure Of The Sierra Madre.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Twilight Zone.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Walking Dead.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Way We Live Now.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Wire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/The Wizard Of Oz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Three's Company.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Titanic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/To Kill A Mockingbird.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Top Of The Lake.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/True Blood.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Twin Peaks.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Tyrant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Unforgiven.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/V.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Vertigo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Welt Am Draht.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/West Side Story.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Wuthering Heights.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forsider/Yankee Doodle Dandy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/txt/favoritliste.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txt/favoritliste.txt" afterDir="false" />
+    </list>
+    <list id="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" name="Changes by annadiers" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Favoriteliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Favoriteliste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Film.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Serier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serier.java" afterDir="false" />
-    </list>
-    <list id="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" name="Changes by annadiers" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
-    </list>
-    <list id="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" name="Changes by tanda" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/txt/film.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txt/film.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/txt/serier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txt/serier.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +245,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="Obejkt-Orietneret" />
+                    <option name="lastUsedInstant" value="1670930983" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1670452845" />
@@ -70,45 +275,59 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Medie.java">
+    <file path="$PROJECT_DIR$/src/Favoriteliste.java">
       <ranges>
-        <range start1="7" end1="8" start2="7" end2="10" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="9" end1="10" start2="11" end2="12" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="13" end1="13" start2="15" end2="17" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="14" end1="14" start2="18" end2="20" changelist="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" />
-        <range start1="27" end1="30" start2="33" end2="40" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="31" end1="35" start2="41" end2="44" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="41" end1="41" start2="50" end2="51" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="53" end1="54" start2="63" end2="63" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="83" end1="84" start2="92" end2="93" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="18" end1="20" start2="18" end2="22" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="27" end1="28" start2="29" end2="30" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="33" end1="34" start2="35" end2="36" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="36" end1="37" start2="38" end2="39" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="47" end1="49" start2="49" end2="54" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="53" end1="54" start2="58" end2="59" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="59" end1="60" start2="64" end2="65" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="77" end1="78" start2="82" end2="86" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="81" end1="93" start2="89" end2="89" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Main.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="13" end1="18" start2="14" end2="15" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="19" end1="20" start2="16" end2="19" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="21" end1="21" start2="20" end2="65" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="22" end1="22" start2="66" end2="74" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/GUI.java">
       <ranges>
-        <range start1="9" end1="10" start2="9" end2="12" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="22" end1="22" start2="24" end2="25" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="27" end1="28" start2="30" end2="31" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="32" end1="32" start2="35" end2="39" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="42" end1="42" start2="49" end2="50" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="48" end1="50" start2="56" end2="56" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="53" end1="53" start2="59" end2="62" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="106" end1="106" start2="115" end2="116" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="146" end1="146" start2="156" end2="158" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="150" end1="151" start2="162" end2="162" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="162" end1="163" start2="173" end2="173" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="175" end1="176" start2="185" end2="194" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="205" end1="206" start2="223" end2="224" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="214" end1="214" start2="232" end2="233" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="216" end1="216" start2="235" end2="236" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="217" end1="219" start2="237" end2="238" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="228" end1="229" start2="247" end2="253" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="231" end1="231" start2="255" end2="275" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="239" end1="239" start2="283" end2="285" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="254" end1="255" start2="300" end2="301" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="261" end1="262" start2="307" end2="307" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="274" end1="274" start2="319" end2="321" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="284" end1="285" start2="331" end2="332" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="319" end1="319" start2="366" end2="470" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
+        <range start1="62" end1="62" start2="62" end2="64" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="115" end1="116" start2="117" end2="118" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="192" end1="192" start2="194" end2="195" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="223" end1="224" start2="226" end2="227" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="254" end1="254" start2="257" end2="262" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="262" end1="263" start2="270" end2="271" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="272" end1="273" start2="280" end2="281" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="278" end1="306" start2="286" end2="287" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="319" end1="338" start2="300" end2="302" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="370" end1="383" start2="334" end2="335" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="384" end1="389" start2="336" end2="336" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="422" end1="443" start2="369" end2="373" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="470" end1="470" start2="400" end2="453" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Medie.java">
+      <ranges>
+        <range start1="10" end1="10" start2="10" end2="11" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="11" end1="12" start2="12" end2="13" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="16" end1="16" start2="17" end2="18" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="18" end1="56" start2="20" end2="20" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="128" end1="128" start2="92" end2="96" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Serier.java">
+      <ranges>
+        <range start1="3" end1="4" start2="3" end2="4" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
+        <range start1="5" end1="7" start2="5" end2="8" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
+        <range start1="9" end1="9" start2="10" end2="14" changelist="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" />
       </ranges>
     </file>
   </component>
@@ -126,7 +345,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -134,6 +354,9 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -176,6 +399,10 @@
       <workItem from="1670368607463" duration="6522000" />
       <workItem from="1670417366250" duration="26357000" />
       <workItem from="1670452877615" duration="12763000" />
+      <workItem from="1670931066211" duration="16990000" />
+      <workItem from="1670963308404" duration="62000" />
+      <workItem from="1670963379042" duration="30000" />
+      <workItem from="1670963416884" duration="7010000" />
     </task>
     <servers />
   </component>
@@ -198,7 +425,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/GUI.java</url>
-          <line>133</line>
+          <line>135</line>
           <properties class="GUI">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
