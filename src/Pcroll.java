@@ -99,8 +99,7 @@ public class Pcroll {
 
         JPanel showSearch = new JPanel();
         newPanel .add(showSearch);
-        showSearch.setVisible(false);
-        object0.addActionListener(e -> {
+        showSearch.setVisible(false);object0.addActionListener(e -> {
             System.out.println(searchBar.getText());
             JLabel word = new JLabel(searchBar.getText());
             showSearch.add(word);

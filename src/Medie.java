@@ -35,7 +35,6 @@ public abstract class Medie {
                     //System.out.println(s.nextLine());
                     String str = s.nextLine();
 
-
                     String[] arrOfStr = str.split(";",4);
 
                     //System.out.println(arrOfStr[0]); //det er navnet og arrOfStr(2) er genrene

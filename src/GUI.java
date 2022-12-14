@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-import java.util.List;
 
 
 public class GUI {
@@ -23,12 +22,14 @@ public class GUI {
     JPanel watchPanel = new JPanel();
     JPanel searchPanel = new JPanel();
     JPanel filterPanel = new JPanel();
+
+
 //  Arraliste af paneler. Det skal være i den samme rækkefølge som arrScrollPane
 //  navpanel er ikke inkluderet, der den altid skal vises.
     ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel,searchPanel,watchPanel));
 
     //scroll bar paneler
-    protected JScrollPane forsideScroll, filmScroll ,serierScroll , minListeScroll , watchScroll , searchScroll, filterScroll ;
+    protected JScrollPane forsideScroll, filmScroll ,serierScroll , minListeScroll , watchScroll , searchScroll, filterScroll,playMedieScroll ;
 
     //Array liste af JScrollPane
     //Skal være samme rækkefølge som arrPanel
@@ -59,6 +60,8 @@ public class GUI {
     protected ArrayList<Medie> arrAlle = new ArrayList<>();
 
     protected JPanel infoPanel = new JPanel(); //Den skal indeholde info om mediet
+    protected JPanel playMediePanel = new JPanel();
+    protected JPanel spilSeriePanel = new JPanel();
 
     JComboBox seasonComboBox;
     JComboBox episodeComboBox;
@@ -108,6 +111,11 @@ public class GUI {
         //info om mediet, og have en knap til min liste og afspilning
         watchPanel.setLayout(new GridLayout(1,4));
 
+        spilSeriePanel.setLayout(new GridLayout(2,1));
+        spilSeriePanel.setBackground(new Color(32,32,32));
+        playMediePanel.setLayout(new GridLayout(1,3));
+        playMediePanel.setBackground(new Color(32,32,32));
+
         //Sætter hvert panel ind i deres eget scroll pane, så man kan scrolle
         forsideScroll = new JScrollPane(forsidePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         serierScroll = new JScrollPane(seriePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -116,6 +124,7 @@ public class GUI {
         searchScroll = new JScrollPane(searchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         watchScroll = new JScrollPane(watchPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         filterScroll = new JScrollPane(filterPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        playMedieScroll = new JScrollPane(playMediePanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     }
     public void navButtons() {
         try {
@@ -234,6 +243,7 @@ public class GUI {
         //Sætter info a mediet som et array, så vi kan lave et for each loop
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
         Favoritliste favor = new Favoritliste();
+        JButton afspil = new JButton("Afspil");
         btn.addActionListener(e -> {
             watchPanel.removeAll();
             infoPanel.removeAll();
@@ -254,8 +264,6 @@ public class GUI {
                 infoPanel.add(fjernBtn);
             }
             watchPanel.add(infoPanel);
-
-            JButton afspil = new JButton("Afspil");
 
             if(ID > 99) playSerie(saeson_episode); // Hvis en serie så tilføjer den en Combobox
             watchPanel.add(afspil);
@@ -280,6 +288,64 @@ public class GUI {
             infoPanel.revalidate();
             favor.fjern_medie(title, ID);
         });
+
+        afspil.addActionListener(e -> {
+             display(playMedieScroll);
+             playMediePanel.removeAll();
+
+             JLabel medieTxt;
+             String medieInfo = "";
+             if(ID > 99) {
+                 medieInfo = seasonComboBox.getSelectedItem() + " " + episodeComboBox.getSelectedItem();
+             }
+             else  {
+                 medieInfo = "";
+             }
+
+             medieTxt = new JLabel("Afspiller nu " + title + " " + medieInfo);
+             JButton btnBlank = new JButton();
+            JButton btnBlank2 = new JButton();
+
+            btnBlank.setVisible(false);
+            btnBlank2.setVisible(false);
+
+            medieTxt.setForeground(Color.WHITE);
+            medieTxt.setFont(new Font("Serif", Font.PLAIN, 28));
+            playMediePanel.add(btnBlank);
+            playMediePanel.add(medieTxt);
+            playMediePanel.add(btnBlank2);
+        });
+
+    }
+    public void playSerie(HashMap<String,Integer> saeson_episode) {
+        spilSeriePanel.removeAll();
+        ArrayList<String> arr1 = new ArrayList<>(saeson_episode.keySet());
+        String[] arrSaeson = arr1.toArray(new String[0]); //Arraylist til array der JCombox kun tager en array og ik andet
+
+        seasonComboBox = new JComboBox(arrSaeson);
+        spilSeriePanel.add(seasonComboBox);
+        watchPanel.add(spilSeriePanel);
+
+        String[] epSaseon1 = new String[saeson_episode.get("Sæson 1")];
+        for(int i = 0; i < epSaseon1.length; i++ ){
+            epSaseon1[i] = "Episode " + (i +1);
+        }
+        episodeComboBox = new JComboBox(epSaseon1);
+        spilSeriePanel.add(episodeComboBox);
+
+        seasonComboBox.addActionListener(e -> {
+            spilSeriePanel.remove(episodeComboBox);
+            String[] epArr = new String[saeson_episode.get(seasonComboBox.getSelectedItem())];
+            for(int i = 0; i < epArr.length; i++ ){
+            epArr[i] = "Episode " + (i +1);
+            }
+            episodeComboBox = new JComboBox(epArr);
+            spilSeriePanel.add(episodeComboBox);
+            spilSeriePanel.revalidate();
+        });
+    }
+
+    public void afspilMedie(){
 
     }
     public void readFile(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel){
@@ -397,27 +463,6 @@ public class GUI {
             minListePanel.setLayout(new GridLayout(totalMedie/5, 5));
         }
         minListePanel.revalidate(); //Opdatere panelet
-    }
-
-    public void playSerie(HashMap<String,Integer> saeson_episode) {
-        ArrayList<String> arr1 = new ArrayList<>(saeson_episode.keySet());
-        String[] arrSaeson = arr1.toArray(new String[0]); //Arraylist til array der JCombox kun tager en array og ik andet
-
-        seasonComboBox = new JComboBox(arrSaeson);
-
-        watchPanel.add(seasonComboBox);
-
-        seasonComboBox.addActionListener(e -> {
-            System.out.println(saeson_episode.get("Sæson " + (seasonComboBox.getSelectedIndex()+1))); //vi plusser med 1 siden index starter på 0
-
-            int
-
-            for(int i = 0; i < seasonComboBox.getSelectedIndex()+1; i++ ){
-
-            }
-
-            episodeComboBox = new JComboBox();
-        });
     }
 
     public void readImage(Medie m, ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
