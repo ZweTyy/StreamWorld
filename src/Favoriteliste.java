@@ -16,8 +16,10 @@ class Favoritliste {
                 ;
             }
         } catch (FileNotFoundException e) {
-            e.getMessage();
-
+            System.out.println(e.getMessage()+ " Kunne ikke finde filen:");
+        } catch (Exception e ) {
+            System.out.println(e.getMessage());
+            System.out.println("Noget gik galt i indlæs medie metode");
         }
         return gemte_medier;
     }
@@ -25,16 +27,16 @@ class Favoritliste {
 
 
 
-    public void tilføj_medie(String titel) {
+    public void tilføj_medie(String titel, int ID) {
         indlaes_medier(); //her er listen over de medier der er på favoritlisten, det er metoden ovenfor
         try {
 
             Writer overskriv = new FileWriter("src/txt/favoritliste.txt");
 
-            if (gemte_medier.contains(titel)) {
+            if (gemte_medier.contains(titel + " " + ID)) {
                 //sørger for samme titel ikke sættes ind flere gange
             } else {
-                overskriv.write(titel);//titel skrives ind i til txt dokumentet
+                overskriv.write(titel + " " + ID);//titel skrives ind i til txt dokumentet
                 overskriv.write(System.lineSeparator()); //sørger for mellemrum
             }
             if (gemte_medier.size() > 0) {
@@ -45,19 +47,22 @@ class Favoritliste {
             }
 
             overskriv.close();
-        } catch (IOException e) {
-            e.getMessage();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage()+ " Kunne ikke finde filen: "+ titel);
+        } catch (Exception e ) {
+            System.out.println(e.getMessage());
+            System.out.println("Noget gik galt i tilføj medie metode");
         }
 
     }
 
-    public void fjern_medie(String titel) {
+    public void fjern_medie(String titel, int ID) {
         indlaes_medier();
         try {
             Scanner s = new Scanner(favoritliste);
             while (s.hasNextLine()) {//går igennem filen
                 String str = s.nextLine();
-                if (str.matches(titel)) { //hvis filen indeholder titlen ,fjernes den fra arraylisten gemte medier.
+                if (str.matches(titel + " " + ID)) { //hvis filen indeholder titlen ,fjernes den fra arraylisten gemte medier.
                     try {
                         Writer overskriv = new FileWriter("src/txt/favoritliste.txt");
                         if (gemte_medier.size() > 0) {
@@ -75,21 +80,12 @@ class Favoritliste {
             }
             gemte_medier.clear();
         } catch (FileNotFoundException e) {
-            e.getMessage();
+            System.out.println(e.getMessage()+ " Kunne ikke finde filen: "+ titel);
+        } catch (Exception e ) {
+            System.out.println(e.getMessage());
+            System.out.println("Noget gik galt i fjern medie metode");
         }
     }
 
-    public void udskriv() { //blot en hjælpemetode, for at teste det virker. den fjernes i den endelige kode
-        try {
-            Scanner s = new Scanner(favoritliste);
-            while (s.hasNextLine()) {
-                String str = s.nextLine();
-
-                System.out.println(str);
-            }
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-        }
-    }
 
 }

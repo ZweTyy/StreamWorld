@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Favoriteliste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/txt/favoritliste.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CardLayoutExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Film.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serier.java" afterDir="false" />
-    </list>
-    <list id="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" name="Changes by annadiers" comment="">
       <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
     </list>
-    <list id="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" name="Changes by tanda" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-    </list>
+    <list id="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" name="Changes by annadiers" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Sorter" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -44,6 +36,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="Obejkt-Orietneret" />
+                    <option name="lastUsedInstant" value="1670930983" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1670452845" />
@@ -69,49 +65,6 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Medie.java">
-      <ranges>
-        <range start1="7" end1="8" start2="7" end2="10" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="9" end1="10" start2="11" end2="12" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="13" end1="13" start2="15" end2="17" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="14" end1="14" start2="18" end2="20" changelist="0c9b4118-a296-41cf-bd5c-ae7f7b8b0c1c" />
-        <range start1="27" end1="30" start2="33" end2="40" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="31" end1="35" start2="41" end2="44" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="41" end1="41" start2="50" end2="51" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="53" end1="54" start2="63" end2="63" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="83" end1="84" start2="92" end2="93" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/GUI.java">
-      <ranges>
-        <range start1="9" end1="10" start2="9" end2="12" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="22" end1="22" start2="24" end2="25" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="27" end1="28" start2="30" end2="31" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="32" end1="32" start2="35" end2="39" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="42" end1="42" start2="49" end2="50" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="48" end1="50" start2="56" end2="56" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="53" end1="53" start2="59" end2="62" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="106" end1="106" start2="115" end2="116" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="146" end1="146" start2="156" end2="158" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-        <range start1="150" end1="151" start2="162" end2="162" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="162" end1="163" start2="173" end2="173" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="175" end1="176" start2="185" end2="194" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="205" end1="206" start2="223" end2="224" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="214" end1="214" start2="232" end2="233" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="216" end1="216" start2="235" end2="236" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="217" end1="219" start2="237" end2="238" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="228" end1="229" start2="247" end2="253" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="231" end1="231" start2="255" end2="275" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="239" end1="239" start2="283" end2="285" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="254" end1="255" start2="300" end2="301" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="261" end1="262" start2="307" end2="307" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="274" end1="274" start2="319" end2="321" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="284" end1="285" start2="331" end2="332" changelist="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" />
-        <range start1="319" end1="319" start2="366" end2="470" changelist="de109fb2-bd8a-4f9f-8a91-402f83d6cea7" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -126,7 +79,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshuacalba/Library/CloudStorage/OneDrive-Personal/ITU/Semester 1/Grundlæggende programmering/Eksamens projekt/Main_kode/MainCode/src&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -134,6 +88,9 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -176,6 +133,11 @@
       <workItem from="1670368607463" duration="6522000" />
       <workItem from="1670417366250" duration="26357000" />
       <workItem from="1670452877615" duration="12763000" />
+      <workItem from="1670931066211" duration="16990000" />
+      <workItem from="1670963308404" duration="62000" />
+      <workItem from="1670963379042" duration="30000" />
+      <workItem from="1670963416884" duration="15979000" />
+      <workItem from="1671021785431" duration="759000" />
     </task>
     <servers />
   </component>
@@ -198,7 +160,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/GUI.java</url>
-          <line>133</line>
+          <line>142</line>
           <properties class="GUI">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
