@@ -408,48 +408,30 @@ public class GUI {
         filterPanel.removeAll();
         int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning
         for (Medie m : arrMedie) {
-            if (filterGenre.getSelectedItem().equals(m.genre)) {
-                readImage(m,arrMedie,arrBtnSerier,panel);
-            if (m.genre.contains(filterGenre.getSelectedItem().toString())) {
-                JButton tilfoejBtn = new JButton("Tilføj til min liste");
-                JButton fjernBtn = new JButton("Fjern fra min liste");
-                try { //samme kode fra readFile
-                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
-                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
-                    picBtn.setBackground(new Color(32,32,32));
-                    picBtn.setFocusable(false);
-                    picBtn.setBackground(Color.black);
-                    picBtn.setOpaque(true);
-                    picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
-                    arrBtn.add(picBtn);
-                    panel.add(picBtn);
-                    showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre,picBtn, m.minListe, tilfoejBtn,fjernBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
-                    totalMedie++;
-                } catch (FileNotFoundException fnfe) {
-                    System.out.println("Der fandtes ingen resultater for " + m.titel);
-                } catch (Exception e) {
-                    System.out.println("Noget gik galt");
+
+                if (m.genre.contains(filterGenre.getSelectedItem().toString())) {
+              //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+                    readImage(m, arrMedie, arrBtn, panel);
+                        totalMedie++;
                 }
             }
-        }
-        if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-            display(forsideScroll);
-        }
-        else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
-            for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
-                JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
-                blankBtn.setBackground(new Color(32,32,32));
-                blankBtn.setOpaque(true);
-                blankBtn.setBorderPainted(false);
-                filterPanel.add(blankBtn);
+            if (totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
+                display(forsideScroll);
+            } else if (totalMedie % 5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
+                for (int i = 0; i < 5 - (totalMedie % 5); i++) { //Kører til at totalMedie mod 5 = 0
+                    JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
+                    blankBtn.setBackground(new Color(32, 32, 32));
+                    blankBtn.setOpaque(true);
+                    blankBtn.setBorderPainted(false);
+                    filterPanel.add(blankBtn);
+                }
+                filterPanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
+            } else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
+                filterPanel.setLayout(new GridLayout(totalMedie / 5, 5));
             }
-            filterPanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
+            filterPanel.revalidate(); //Opdatere panelet
         }
-        else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
-            filterPanel.setLayout(new GridLayout(totalMedie/5, 5));
-        }
-        filterPanel.revalidate(); //Opdatere panelet
-    }
+
 
     public void minListeFunktion(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
         int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning

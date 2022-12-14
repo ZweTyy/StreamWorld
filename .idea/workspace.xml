@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Medie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pcroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pcroll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/txt/favoritliste.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txt/favoritliste.txt" afterDir="false" />
     </list>
     <list id="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" name="Changes by annadiers" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Sorter" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,6 +137,7 @@
       <workItem from="1670963308404" duration="62000" />
       <workItem from="1670963379042" duration="30000" />
       <workItem from="1670963416884" duration="15979000" />
+      <workItem from="1671021785431" duration="759000" />
     </task>
     <servers />
   </component>
@@ -158,7 +160,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/GUI.java</url>
-          <line>144</line>
+          <line>142</line>
           <properties class="GUI">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
