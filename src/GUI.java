@@ -22,8 +22,6 @@ public class GUI {
     JPanel watchPanel = new JPanel();
     JPanel searchPanel = new JPanel();
     JPanel filterPanel = new JPanel();
-
-
 //  Arraliste af paneler. Det skal være i den samme rækkefølge som arrScrollPane
 //  navpanel er ikke inkluderet, der den altid skal vises.
     ArrayList<JPanel> arrPanel = new ArrayList<>(Arrays.asList(forsidePanel,seriePanel,filmPanel,minListePanel,searchPanel,watchPanel));
@@ -189,19 +187,30 @@ public class GUI {
         /* Der er hernede vi tilføjer funktionalitet til hver af vores knapper
            Den fremviser den pågældende panel og sætter visibility af de andre paneler til false */
         //Se display metoden
-        logoBtn.addActionListener(e -> display(forsideScroll));
-        forsideBtn.addActionListener(e -> display(forsideScroll));
-        serierBtn.addActionListener(e -> display(serierScroll));
-        filmBtn.addActionListener(e -> display(filmScroll));
-        minListeBtn.addActionListener(e -> {display(minListeScroll);});
+        logoBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(forsideScroll);
+        });
+        forsideBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(forsideScroll);
+        });
+        serierBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(serierScroll);
+        });
+        filmBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
+            display(filmScroll);
+        });
         filterGenre.addActionListener(e -> {
-            filter(arrAlle,arrBtnAlle,watchPanel);
+            filter(arrAlle,arrBtnAlle,filterPanel);
         });
         minListeBtn.addActionListener(e -> {
+            filterGenre.setSelectedIndex(0);
             display(minListeScroll);
             minListeFunktion(arrAlle,arrBtnAlle,minListePanel);
         });
-
 
         }
 
@@ -395,22 +404,36 @@ public class GUI {
 
     }
     public void filter(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
+        display(filterScroll);
+        filterPanel.removeAll();
         int totalMedie = 0; //Det skal bruges til at tælle hvor mange medier bliver vist frem til søgning
         for (Medie m : arrMedie) {
             if (filterGenre.getSelectedItem().equals(m.genre)) {
                 readImage(m,arrMedie,arrBtnSerier,panel);
+            if (m.genre.contains(filterGenre.getSelectedItem().toString())) {
+                JButton tilfoejBtn = new JButton("Tilføj til min liste");
+                JButton fjernBtn = new JButton("Fjern fra min liste");
+                try { //samme kode fra readFile
+                    BufferedImage image = ImageIO.read(new File("src/forsider/"+m.titel+".jpg"));
+                    JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
+                    picBtn.setBackground(new Color(32,32,32));
+                    picBtn.setFocusable(false);
+                    picBtn.setBackground(Color.black);
+                    picBtn.setOpaque(true);
+                    picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+                    arrBtn.add(picBtn);
+                    panel.add(picBtn);
+                    showMedia(picBtn, m.titel, m.aarstal, m.rating,m.genre,picBtn, m.minListe, tilfoejBtn,fjernBtn); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
                     totalMedie++;
+                } catch (FileNotFoundException fnfe) {
+                    System.out.println("Der fandtes ingen resultater for " + m.titel);
+                } catch (Exception e) {
+                    System.out.println("Noget gik galt");
+                }
             }
         }
         if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-            filterPanel.setLayout(new FlowLayout());
-            JLabel txt = new JLabel("Kunne ikke finde noget fra din søgning");
-            txt.setBounds(0,0,200,25);
-            txt.setBackground(new Color (32,32,32));
-            txt.setForeground(Color.white);
-            txt.setOpaque(true);
-            txt.setFont(new Font("Sans", Font.PLAIN, 45));
-            filterPanel.add(txt);
+            display(forsideScroll);
         }
         else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
             for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
