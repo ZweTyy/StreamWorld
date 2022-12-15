@@ -111,7 +111,7 @@ public class GUI {
 
         spilSeriePanel.setLayout(new GridLayout(2,1));
         spilSeriePanel.setBackground(new Color(32,32,32));
-        playMediePanel.setLayout(new GridLayout(1,3));
+        playMediePanel.setLayout(new GridLayout(3,1));
         playMediePanel.setBackground(new Color(32,32,32));
 
         //Sætter hvert panel ind i deres eget scroll pane, så man kan scrolle
@@ -286,7 +286,6 @@ public class GUI {
             infoPanel.add(fjernBtn);
             infoPanel.revalidate();
             favor.tilføj_medie(title,ID);
-
         });
 
         fjernBtn.addActionListener(e ->{
@@ -310,19 +309,17 @@ public class GUI {
              else  {
                  medieInfo = "";
              }
+             JButton btnBlankTop = new JButton();
+            JButton btnBlankBottom = new JButton();
+            btnBlankTop.setVisible(false);
+            btnBlankBottom.setVisible(false);
 
-             medieTxt = new JLabel("Afspiller nu " + title + " " + medieInfo);
-             JButton btnBlank = new JButton();
-            JButton btnBlank2 = new JButton();
-
-            btnBlank.setVisible(false);
-            btnBlank2.setVisible(false);
-
+            medieTxt = new JLabel("Afspiller nu " + title + " " + medieInfo, SwingConstants.CENTER);
             medieTxt.setForeground(Color.WHITE);
-            medieTxt.setFont(new Font("Serif", Font.PLAIN, 28));
-            playMediePanel.add(btnBlank);
+            medieTxt.setFont(new Font("Sans", Font.PLAIN, 40));
+            playMediePanel.add(btnBlankTop);
             playMediePanel.add(medieTxt);
-            playMediePanel.add(btnBlank2);
+            playMediePanel.add(btnBlankBottom);
         });
 
     }
@@ -354,9 +351,6 @@ public class GUI {
         });
     }
 
-    public void afspilMedie(){
-
-    }
     public void readFile(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel){
         for (Medie m : arrMedie) {
         readImage(m, arrMedie, arrBtn, panel);
@@ -377,30 +371,7 @@ public class GUI {
                 totalMedie++;
             }
         }
-        if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-            searchPanel.setLayout(new FlowLayout());
-            JLabel txt = new JLabel("Kunne ikke finde noget fra din søgning");
-            txt.setBounds(0,0,200,25);
-            txt.setBackground(new Color (32,32,32));
-            txt.setForeground(Color.white);
-            txt.setOpaque(true);
-            txt.setFont(new Font("Sans", Font.PLAIN, 45));
-            searchPanel.add(txt);
-        }
-        else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
-            for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
-                JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
-                blankBtn.setBackground(new Color(32,32,32));
-                blankBtn.setOpaque(true);
-                blankBtn.setBorderPainted(false);
-                searchPanel.add(blankBtn);
-            }
-            searchPanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
-        }
-        else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
-            searchPanel.setLayout(new GridLayout(totalMedie/5, 5));
-        }
-        searchPanel.revalidate(); //Opdatere panelet 
+        totalMedie(searchPanel,totalMedie,"Kunne ikke finde noget fra din søgning");
 
     }
     public void filter(ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
@@ -415,21 +386,7 @@ public class GUI {
                         totalMedie++;
                 }
             }
-            if (totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-                display(forsideScroll);
-            } else if (totalMedie % 5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
-                for (int i = 0; i < 5 - (totalMedie % 5); i++) { //Kører til at totalMedie mod 5 = 0
-                    JButton blankBtn = new JButton(); //lave en knap der har samme baggrund som baggrund, så man ikke kan se den
-                    blankBtn.setBackground(new Color(32, 32, 32));
-                    blankBtn.setOpaque(true);
-                    blankBtn.setBorderPainted(false);
-                    filterPanel.add(blankBtn);
-                }
-                filterPanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
-            } else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
-                filterPanel.setLayout(new GridLayout(totalMedie / 5, 5));
-            }
-            filterPanel.revalidate(); //Opdatere panelet
+            totalMedie(filterPanel,totalMedie,"");
         }
 
 
@@ -444,15 +401,25 @@ public class GUI {
                 totalMedie++;
             }
         }
+        totalMedie(minListePanel,totalMedie,"Din liste er tom");
+    }
+
+    public void totalMedie(JPanel panel, int totalMedie, String message) {
         if(totalMedie == 0) { //Hvis ens søgning ikke passer til nogen titler, så display den det her
-            minListePanel.setLayout(new FlowLayout());
-            JLabel txt = new JLabel("Din liste er tom");
+            panel.setLayout(new GridLayout(3,1));
+            JButton blankBtnTop = new JButton();
+            JButton blankBtnBottom = new JButton();
+            blankBtnTop.setVisible(false);
+            blankBtnBottom.setVisible(false);
+            JLabel txt = new JLabel(message, SwingConstants.CENTER);
             txt.setBounds(0,0,200,25);
             txt.setBackground(new Color (32,32,32));
             txt.setForeground(Color.white);
             txt.setOpaque(true);
             txt.setFont(new Font("Sans", Font.PLAIN, 45));
-            minListePanel.add(txt);
+            panel.add(blankBtnTop);
+            panel.add(txt);
+            panel.add(blankBtnBottom);
         }
         else if (totalMedie%5 != 0 || totalMedie == 5) { //Hvis antal medie kan ikke divides med 5, eller antal er 5
             for(int i = 0; i< 5-(totalMedie%5); i++){ //Kører til at totalMedie mod 5 = 0
@@ -460,15 +427,16 @@ public class GUI {
                 blankBtn.setBackground(new Color(32,32,32));
                 blankBtn.setOpaque(true);
                 blankBtn.setBorderPainted(false);
-                minListePanel.add(blankBtn);
+                panel.add(blankBtn);
             }
-            minListePanel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
+            panel.setLayout(new GridLayout(totalMedie / 5 + 1, 5)); //Laver antal grid der passer til antal totalmedie og de usynlig knapper
         }
         else { //Ellers hvis total medie går op i 5 og ikk er 5, fx 20, så sætte rækker til at være 4 (totalMedie som er 20/5 = 4)
-            minListePanel.setLayout(new GridLayout(totalMedie/5, 5));
+            panel.setLayout(new GridLayout(totalMedie/5, 5));
         }
-        minListePanel.revalidate(); //Opdatere panelet
+        panel.revalidate(); //Opdatere panelet
     }
+
 
     public void readImage(Medie m, ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
         JButton tilfoejBtn = new JButton("Tilføj til min liste");
