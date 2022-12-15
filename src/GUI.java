@@ -242,7 +242,7 @@ public class GUI {
     }
 
     //Den her metode søger for at hvis man trykker på et medie, så kan man se dens infp
-    public void showMedia(JButton btn, String title, int ID, String aarstal, String rating, String genre,JButton btnWatch, boolean minListe, JButton tilfoejBtn, JButton fjernBtn, HashMap<String,Integer> saeson_episode) {
+    public void showMedia(JButton btn, String title, int ID, String aarstal, String rating, String genre,JButton btnWatch, boolean minListe, JButton tilfoejBtn, JButton fjernBtn, HashMap<String,Integer> saeson_episode) throws IOException {
 
         //Vi har 2 JButton, den ene er fra selve de andre paneler, hvor den anden er en hel kopi (btnWatch)
         //Vi skal have 2 JButton, der en JButton kun kan være på et sted, så når vi trykker på
@@ -252,7 +252,24 @@ public class GUI {
         //Sætter info a mediet som et array, så vi kan lave et for each loop
         ArrayList<String> arrInfo = new ArrayList<>(Arrays.asList("Titel: " +title,"Årstal: " +aarstal,"Rating: " +rating+"/10"));
         Favoritliste favor = new Favoritliste();
-        JButton afspil = new JButton("Afspil");
+
+        BufferedImage playBtnPic = ImageIO.read(new File("src/other/playBtn.png"));
+        JButton playBtn = new JButton(new ImageIcon(playBtnPic.getScaledInstance(200,200,Image.SCALE_SMOOTH)));
+        playBtn.setBackground(new Color(32,32,32));
+        playBtn.setOpaque(true); //Sæt den her til true, for at for et farvet baggrund
+        playBtn.setBorderPainted(false); //Sætter den til at være false for at lave baggrunden
+
+        playBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            //Når musen peger på en nav knap, så ændre baggrunden sig til lidt mørkere
+            public void mouseEntered(java.awt.event.MouseEvent evt){
+                playBtn.setBackground(new Color(64,64,64));
+            }
+            //                Når musen går væk fra en nav knap, så skifter den tilbage til den forrige baggrund
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                playBtn.setBackground(new Color(32,32,32));
+            }
+        });
+
         btn.addActionListener(e -> {
             watchPanel.removeAll();
             infoPanel.removeAll();
@@ -275,7 +292,7 @@ public class GUI {
             watchPanel.add(infoPanel);
 
             if(ID > 99) playSerie(saeson_episode); // Hvis en serie så tilføjer den en Combobox
-            watchPanel.add(afspil);
+            watchPanel.add(playBtn);
 
         });
 
@@ -297,7 +314,26 @@ public class GUI {
             favor.fjern_medie(title, ID);
         });
 
-        afspil.addActionListener(e -> {
+        ArrayList<JButton> arrfjtil = new ArrayList<>(Arrays.asList(tilfoejBtn,fjernBtn));
+
+        for(JButton button : arrfjtil) {
+
+            button.setOpaque(true);
+            button.setBorderPainted(false);
+            button.setFont(new Font("Sans", Font.PLAIN, 25));
+            button.addMouseListener(new java.awt.event.MouseAdapter() {
+                //Når musen peger på en nav knap, så ændre baggrunden sig til lidt mørkere
+                public void mouseEntered(java.awt.event.MouseEvent evt){
+                    button.setBackground(new Color(155,155,155));
+                }
+                //                Når musen går væk fra en nav knap, så skifter den tilbage til den forrige baggrund
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    button.setBackground(new Color(255,255,255));
+                }
+            });
+        }
+
+        playBtn.addActionListener(e -> {
              display(playMedieScroll);
              playMediePanel.removeAll();
 
