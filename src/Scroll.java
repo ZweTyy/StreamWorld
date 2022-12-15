@@ -70,12 +70,11 @@ public class Scroll{
 
         //notice how the panel is dropped inside the scroll pane
         JScrollPane scroll = new JScrollPane(myPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        //        scroll.setVisible(true);
-//        f.add(scroll);  // This adds the scroll bars but doesn't actually make them work.
+
 
 //        finally add the scroll to frame's content pane .. which is more proper than adding to frame directly
         myPanel.setLayout( new GridLayout(10,2));
-//        f.setLayout(null);
+
         f.getContentPane().add(scroll);
         f.setSize(800, 200);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
