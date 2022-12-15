@@ -242,7 +242,7 @@ public class GUI {
     }
 
     //Den her metode søger for at hvis man trykker på et medie, så kan man se dens infp
-    public void showMedia(JButton btn, String title, int ID, String aarstal, String rating, String genre,JButton btnWatch, boolean minListe, JButton tilfoejBtn, JButton fjernBtn, HashMap<String,Integer> saeson_episode) throws IOException {
+    public void showMedia(JButton btn, String title, int ID, String aarstal, String rating, String genre,JButton btnWatch , JButton tilfoejBtn, JButton fjernBtn, HashMap<String,Integer> saeson_episode) throws IOException {
 
         //Vi har 2 JButton, den ene er fra selve de andre paneler, hvor den anden er en hel kopi (btnWatch)
         //Vi skal have 2 JButton, der en JButton kun kan være på et sted, så når vi trykker på
@@ -284,9 +284,12 @@ public class GUI {
                 infoLabel.setFont(new Font("Serif", Font.PLAIN, 28));
                 infoPanel.add(infoLabel);
             }
-            if(!minListe) {
+
+            if(!favor.indlaes_medier().contains(title + " " + ID)) {
+                tilfoejBtn.setVisible(true);
                 infoPanel.add(tilfoejBtn);
             } else {
+                fjernBtn.setVisible(true);
                 infoPanel.add(fjernBtn);
             }
             watchPanel.add(infoPanel);
@@ -498,8 +501,8 @@ public class GUI {
 //            arrBtn.add(picBtn);
             panel.add(picBtn);
 
-            if(favor.indlaes_medier().contains(m.titel + " " + m.ID)) m.minListe = true;
-            showMedia(picBtn, m.titel, m.ID,m.aarstal, m.rating,m.genre,picBtnCopi, m.minListe, tilfoejBtn,fjernBtn, m.getSaeson_episode()); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+//            if(favor.indlaes_medier().contains(m.titel + " " + m.ID)) m.minListe = true;
+            showMedia(picBtn, m.titel, m.ID,m.aarstal, m.rating,m.genre,picBtnCopi, tilfoejBtn,fjernBtn, m.getSaeson_episode()); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
 
         } catch (FileNotFoundException fnfe) {
             System.out.println("Der fandtes ingen resultater for " + m.titel);

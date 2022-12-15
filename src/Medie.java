@@ -20,32 +20,6 @@ public abstract class Medie {
 
     }
 
-
-    public static ArrayList<String> vis_medie(String filename){
-        ArrayList<String> medie_navn = new ArrayList<>();
-       try {
-           File file = new File(filename);
-           Scanner s = new Scanner(file);
-
-           while (s.hasNextLine()) {
-               String[] arrOfStrings = (s.nextLine()).split(";",4);
-               medie_navn.add(arrOfStrings[0]);
-
-           }
-           return medie_navn;
-       }
-       catch(FileNotFoundException e){
-            System.out.println("*** filen findes ikke!");
-            return null;
-        }
-        }
-
-    public static ArrayList<String> display_medie(String filename) {
-
-        vis_medie("src/txt/"+filename+".txt");
-        return  vis_medie("src/txt/"+filename+"..txt");
-    }
-
     public HashMap<String, Integer> getSaeson_episode(){
         return null;
     }
