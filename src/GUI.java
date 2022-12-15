@@ -396,7 +396,6 @@ public class GUI {
         minListePanel.removeAll();
         for (Medie m : arrMedie) {
             if (favor.indlaes_medier().contains(m.titel + " " + m.ID)) {
-                m.minListe = true;  //Alle medierne skal have minliste til at være true, siden de er inden i txt filen
                 readImage(m, arrMedie, arrBtn, panel);
                 totalMedie++;
             }
@@ -441,6 +440,7 @@ public class GUI {
     public void readImage(Medie m, ArrayList<Medie> arrMedie, ArrayList<JButton> arrBtn, JPanel panel) {
         JButton tilfoejBtn = new JButton("Tilføj til min liste");
         JButton fjernBtn = new JButton("Fjern fra min liste");
+        Favoritliste favor = new Favoritliste();
         try { //samme kode fra readFile
             BufferedImage image = null;
             if (m.ID < 100) {
@@ -449,14 +449,21 @@ public class GUI {
                 image = ImageIO.read(new File("src/serieforsider/"+m.titel+".jpg"));
             }
             JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
-            picBtn.setBackground(new Color(32,32,32));
-            picBtn.setFocusable(false);
-            picBtn.setBackground(Color.black);
-            picBtn.setOpaque(true);
-            picBtn.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+            JButton picBtnCopi = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
+            ArrayList<JButton> arrBtnTempo = new ArrayList<>(Arrays.asList(picBtn,picBtnCopi));
+
+            for(JButton b : arrBtnTempo){
+            b.setBackground(new Color(32,32,32));
+            b.setFocusable(false);
+            b.setBackground(Color.black);
+            b.setOpaque(true);
+            b.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
+            }
             arrBtn.add(picBtn);
             panel.add(picBtn);
-            showMedia(picBtn, m.titel, m.ID,m.aarstal, m.rating,m.genre,picBtn, m.minListe, tilfoejBtn,fjernBtn, m.getSaeson_episode()); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
+
+            if(favor.indlaes_medier().contains(m.titel + " " + m.ID)) m.minListe = true;
+            showMedia(picBtn, m.titel, m.ID,m.aarstal, m.rating,m.genre,picBtnCopi, m.minListe, tilfoejBtn,fjernBtn, m.getSaeson_episode()); //Her laver vi ikke en kopi af picbtn, der det ikke er relevant
 
         } catch (FileNotFoundException fnfe) {
             System.out.println("Der fandtes ingen resultater for " + m.titel);

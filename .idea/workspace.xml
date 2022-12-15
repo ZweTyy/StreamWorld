@@ -7,7 +7,6 @@
     <list default="true" id="5d5bb3c6-272d-432c-8cbd-d5d2b13250c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/txt/favoritliste.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txt/favoritliste.txt" afterDir="false" />
     </list>
     <list id="8d4fc736-3cf5-4341-bfde-ebd74a8e04b1" name="Changes by annadiers" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +137,7 @@
       <workItem from="1670963379042" duration="30000" />
       <workItem from="1670963416884" duration="15979000" />
       <workItem from="1671021785431" duration="759000" />
-      <workItem from="1671063880425" duration="737000" />
+      <workItem from="1671063880425" duration="1735000" />
     </task>
     <servers />
   </component>
