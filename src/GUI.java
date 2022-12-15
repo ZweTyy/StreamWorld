@@ -485,7 +485,7 @@ public class GUI {
                 image = ImageIO.read(new File("src/serieforsider/"+m.titel+".jpg"));
             }
             JButton picBtn = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
-            JButton picBtnCopi = new JButton(new ImageIcon(image.getScaledInstance(250,350,Image.SCALE_SMOOTH)));
+            JButton picBtnCopi = new JButton(new ImageIcon(image.getScaledInstance(350,450,Image.SCALE_SMOOTH)));
             ArrayList<JButton> arrBtnTempo = new ArrayList<>(Arrays.asList(picBtn,picBtnCopi));
 
             for(JButton b : arrBtnTempo){
@@ -495,7 +495,7 @@ public class GUI {
             b.setOpaque(true);
             b.setBorderPainted(false); //Sæt den her til true, for at for et farvet baggrund
             }
-            arrBtn.add(picBtn);
+//            arrBtn.add(picBtn);
             panel.add(picBtn);
 
             if(favor.indlaes_medier().contains(m.titel + " " + m.ID)) m.minListe = true;
