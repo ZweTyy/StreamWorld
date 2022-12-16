@@ -33,7 +33,7 @@ public class GUI {
     //Skal være samme rækkefølge som arrPanel
     ArrayList<JScrollPane> arrScrollPane = new ArrayList<>(Arrays.asList(forsideScroll,serierScroll,filmScroll, minListeScroll, searchScroll, watchScroll));
     // Array af alle genre
-    String[] genre = {"Vælg", "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary"
+    String[] genre = {"Vælg genre", "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary"
                         , "Drama", "Film-Noir", "Family", "Fantasy", "History", "Horror", "Music",
                         "Musical", "Mystery", "Romance", "Sci-fi", "Sport", "Talk-show", "Thriller", "War", "Western"};
 
@@ -211,7 +211,6 @@ public class GUI {
             display(minListeScroll);
             minListeFunktion(arrAlle,arrBtnAlle,minListePanel);
         });
-
         }
 
     public void frameMethods() {
@@ -255,7 +254,7 @@ public class GUI {
 
         BufferedImage playBtnPic = ImageIO.read(new File("src/other/playBtn.png"));
         JButton playBtn = new JButton(new ImageIcon(playBtnPic.getScaledInstance(200,200,Image.SCALE_SMOOTH)));
-        playBtn.setBackground(new Color(32,32,32));
+        playBtn.setBackground(new Color(42,42,42));
         playBtn.setOpaque(true); //Sæt den her til true, for at for et farvet baggrund
         playBtn.setBorderPainted(false); //Sætter den til at være false for at lave baggrunden
 
@@ -266,7 +265,7 @@ public class GUI {
             }
             //                Når musen går væk fra en nav knap, så skifter den tilbage til den forrige baggrund
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                playBtn.setBackground(new Color(32,32,32));
+                playBtn.setBackground(new Color(42,42,42));
             }
         });
 
